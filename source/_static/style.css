@@ -1,0 +1,15 @@
+/* style for sphinx_rtd_theme theme */
+
+.rst-content .code-block-caption {
+  padding: 0 !important;
+  text-align: left;
+}
+
+.rst-content img {
+  display: block;
+  margin: 15px auto !important;
+}
+
+.mb0 {
+  margin-bottom: 0 !important;
+}
