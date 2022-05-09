@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. イテラブルオブジェクト &mdash; ジョブクラウン Python 勉強会 学習用資料</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        <script src="_static/link_control.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="3. 関数" href="function.html" />
+    <link rel="prev" title="1. Python を始めよう" href="start_python.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Python 勉強会 ドキュメント
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="hiyoko_index.html">ひよこコース</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="start_python.html">1. Python を始めよう</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2. イテラブルオブジェクト</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">2.1. そもそもオブジェクトとは</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">2.1.1. メソッド</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">2.2. イテラブルオブジェクトとは</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">2.3. スライス</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list">2.4. リスト (list)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">2.4.1. 項目の追加</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">2.4.2. 項目の削除</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tuple">2.5. タプル (tuple)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set">2.6. セット (set)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">2.6.1. 項目の追加</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">2.6.2. 項目の削除</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">2.6.3. 集合演算の例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">2.6.4. リストから重複項目を削除する例</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#dict">2.7. ディクショナリ(dict)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for">2.8. for文をもう少し深く理解する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">2.9. 演習問題</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id13">2.9.1. 演習1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">2.9.2. 演習2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">2.9.3. 演習3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">2.9.4. 演習4</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">2.9.5. 演習5</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">2.10. おまけ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="function.html">3. 関数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="library.html">4. ライブラリ・モジュール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class.html">5. クラス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_exam.html">6. Python3エンジニア認定基礎試験</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python 勉強会 ドキュメント</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="hiyoko_index.html">ひよこコース</a> &raquo;</li>
+      <li><span class="section-number">2. </span>イテラブルオブジェクト</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">2. </span>イテラブルオブジェクト<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク"></a></h1>
+<section id="id2">
+<h2><span class="section-number">2.1. </span>そもそもオブジェクトとは<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク"></a></h2>
+<p>本章の本題であるイテラブルオブジェクトを学ぶ前に、そもそもオブジェクトというものが何なのかを説明しましょう。</p>
+<div class="line-block">
+<div class="line">オブジェクト (Object) を直訳すると「物体」です。</div>
+<div class="line">プログラミング言語で言うところのオブジェクトとはつまり、物体のような性質を持ったデータのことなのです。</div>
+<div class="line">そして、Python のデータは全てオブジェクトです。</div>
+</div>
+<div class="line-block">
+<div class="line">オブジェクトは画面に表示されるデータだけでなく、内部に様々な属性 (アトリビュート) を持っています。</div>
+<div class="line">アトリビュートには <strong>情報や状態等を表すデータ (プロパティ)</strong> と、 <strong>データに対する操作や処理 (メソッド)</strong> があります。</div>
+</div>
+<p>例えば、ここに私の名刺があります。</p>
+<img alt="_images/image007.png" src="_images/image007.png" />
+<p>この名刺のプロパティとメソッドはこんな感じになるでしょう。</p>
+<dl>
+<dt>(プロパティ)</dt><dd><div class="line-block">
+<div class="line">タテ: 91mm</div>
+<div class="line">ヨコ: 55mm</div>
+<div class="line">社名: 株式会社ジョブクラウン</div>
+<div class="line">氏名: 津山太郎</div>
+</div>
+</dd>
+<dt>(メソッド)</dt><dd><p>交換する: 相手に自分の情報を伝えると共に、相手が名刺を持っている場合相手の名刺が手に入る</p>
+</dd>
+</dl>
+<p>これを card というデータ型のオブジェクト tsuyama_card と定義するとこんな感じになります。</p>
+<img alt="_images/image008.png" src="_images/image008.png" />
+<div class="mb0 line-block">
+<div class="line">ここで、Python の str 型のデータを見てみましょう。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;python&quot;</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">この str 型の変数 text は print 関数に渡すと Python という文字が表示されます。</div>
+<div class="line">ですが、この変数 text には Python という文字以外にも様々な情報を持っています。</div>
+<div class="line">(逆を返すと print 関数は「受け取ったデータの中にある文字データのみを画面に表示する」という機能を持った関数なのです。)</div>
+</div>
+<p>変数 text を図で表すと次のようになります。</p>
+<img alt="_images/image009.png" src="_images/image009.png" />
+<div class="line-block">
+<div class="line">str 型の文字データは __str__ というメソッドで取得できます。</div>
+<div class="line">文字数は __len__ というメソッドで取得できます。</div>
+</div>
+<div class="mb0 line-block">
+<div class="line">アトリビュートはオブジェクト.アトリビュートという風に . (ドット) でつなぐと取得できます。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="fm">__str__</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="fm">__len__</span><span class="p">())</span>
+</pre></div>
+</div>
+<section id="id3">
+<h3><span class="section-number">2.1.1. </span>メソッド<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="line-block">
+<div class="line">メソッドとはそのオブジェクトが持っている機能 (関数) のことです。</div>
+<div class="line">例として str 型のメソッドを一部紹介します。対話モードを使って実際に試してみましょう。</div>
+</div>
+<div class="mb0 line-block">
+<div class="line">str.replace(old, new[, count])</div>
+<div class="line">文字列内にある文字列 old 全てを new に置換して返します。</div>
+<div class="line">オプション引数 count が与えられている場合、先頭から count 個の old だけを置換します。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;python&quot;</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">,</span><span class="s2">&quot;j&quot;</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;yth&quot;</span><span class="p">,</span><span class="s2">&quot;obcr&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;on&quot;</span><span class="p">,</span><span class="s2">&quot;own&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">str.upper()</div>
+<div class="line">大小文字の区別のある文字が全て大文字に変換された文字列を返します。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">ちなみに・・・</div>
+<div class="line">オブジェクトが持っているアトリビュート名を知りたいときは dir 関数を使用します。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="id4">
+<h2><span class="section-number">2.2. </span>イテラブルオブジェクトとは<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="line-block">
+<div class="line">イテラブルオブジェクトとは、 <strong>複数の要素を含み、ひとつずつ要素を取り出すことのできるオブジェクト</strong> です。</div>
+<div class="line">シーケンス型と呼ばれることもあります。</div>
+</div>
+<p>Pythonでよく扱うイテラブルオブジェクトに分類されるデータ型は次のとおりです。(他にもあります)</p>
+<ul class="simple">
+<li><p>文字列 (str)</p></li>
+<li><p>リスト (list)</p></li>
+<li><p>タプル (tuple)</p></li>
+<li><p>セット (set)</p></li>
+<li><p>ディクショナリ (dict)</p></li>
+</ul>
+<div class="mb0 line-block">
+<div class="line">例えば、list 型のデータは次のような感じで使用できます。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">some_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="s2">&quot;勉強会&quot;</span><span class="p">,</span> <span class="s2">&quot;Jobcrown&quot;</span><span class="p">]</span> <span class="c1"># 3 つのデータを格納している状態</span>
+</pre></div>
+</div>
+<p>様々なデータをひとつのオブジェクトに格納して処理できるというのがイテラブルオブジェクトの強みの一つです。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id5">
+<h2><span class="section-number">2.3. </span>スライス<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="mb0 line-block">
+<div class="line">イテラブルオブジェクトのデータから特定の位置の要素を取り出すためにはスライスというものを使用します。 (スライスに対応していないものもあります。)</div>
+<div class="line">スライスの使い方はデータの後ろに [ ] をつけて、取り出したい要素番号を入れるだけです。</div>
+<div class="line">ここでは str 型の例で見ていきます。対話モードで実際に試してみましょう。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;python&quot;</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">str 型のデータを定義すると、各文字と要素番号の対応は下図のようになります。</div>
+<div class="line"><strong>要素の先頭は 0 です。</strong></div>
+</div>
+<img alt="_images/image010.png" src="_images/image010.png" />
+<div class="mb0 line-block">
+<div class="line">先頭の要素を取り出す場合は下記のようにします。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>下図のように 0 番目の要素を指し示しているので &quot;p&quot; が取得できます。</p>
+<img alt="_images/image011.png" src="_images/image011.png" />
+<div class="mb0 line-block">
+<div class="line">同様に、3 番目の要素を指定すると &quot;h&quot; が取得できます。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/image012.png" src="_images/image012.png" />
+<div class="mb0 line-block">
+<div class="line">末尾の要素は -1 で表現できます。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/image013.png" src="_images/image013.png" />
+<div class="mb0 line-block">
+<div class="line">末尾以外の要素も - で表現できます。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/image014.png" src="_images/image014.png" />
+<div class="mb0 line-block">
+<div class="line">n 番目から m 番目までの要素を取り出す場合 [n : m + 1] とします。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">new_text</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new_text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>ここで取得できる文字列は、下図のように 4 番目の要素を含まない &quot;yth&quot; となります。</p>
+<img alt="_images/image015.png" src="_images/image015.png" />
+<div class="mb0 line-block">
+<div class="line">n 番目から最後までの要素を取り出す場合 [n :] とします。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">new_text</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new_text</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/image016.png" src="_images/image016.png" />
+<div class="mb0 line-block">
+<div class="line">先頭から m 番目までの要素を取り出す場合 [: m + 1] とします。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">new_text</span> <span class="o">=</span> <span class="n">text</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new_text</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/image017.png" src="_images/image017.png" />
+<div class="mb0 line-block">
+<div class="line">n 番目から m 番目までの要素を l 個おきに取り出す場合 [n : m + 1 : l + 1] とします。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">new_text</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new_text</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/image018.png" src="_images/image018.png" />
+<div class="mb0 line-block">
+<div class="line">当然のことですが、スライスに要素数より大きい数値を指定するとエラーになります。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">IndexError</span><span class="p">:</span> <span class="n">string</span> <span class="n">index</span> <span class="n">out</span> <span class="n">of</span> <span class="nb">range</span>
+</pre></div>
+</div>
+<p>整数の数値でないものを指定してもエラーとなります。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="list">
+<h2><span class="section-number">2.4. </span>リスト (list)<a class="headerlink" href="#list" title="このヘッドラインへのパーマリンク"></a></h2>
+<p>複数のデータを格納できるデータ型です。</p>
+<div class="mb0 line-block">
+<div class="line">リストは [ ] 内に項目をカンマ区切りで列挙して定義します。</div>
+<div class="line">対話モードで実際に試してみましょう。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;hiyoko&quot;</span><span class="p">,</span> <span class="s2">&quot;jobcrown&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">スライスを使用して要素を取得できます。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">item</span> <span class="o">=</span> <span class="n">list1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>前節で解説したように、list1[2] とすると list1 の 2 番目の要素が取得できるのがわかるでしょうか。</p>
+<section id="id6">
+<h3><span class="section-number">2.4.1. </span>項目の追加<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="mb0 line-block">
+<div class="line">リストは項目の追加ができます。追加には <strong>append メソッド</strong> を使用します。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h3><span class="section-number">2.4.2. </span>項目の削除<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="mb0 line-block">
+<div class="line">項目の削除には末尾または n 番目の要素を削除する方法と、データを指定して削除する方法があります。</div>
+<div class="line">末尾または n 番目の要素を削除するには <strong>pop メソッド</strong> を使用します。</div>
+<div class="line">pop メソッドは削除した項目をデータとして取得できます。</div>
+<div class="line">(もっとそれっぽい表現をすると、pop メソッドには <strong>戻り値</strong> があります)</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">item1</span> <span class="o">=</span> <span class="n">list1</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="c1"># 末尾の要素を削除して返す</span>
+<span class="n">item2</span> <span class="o">=</span> <span class="n">list1</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 1 番目の要素を削除して返す</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">item1</span><span class="p">,</span> <span class="n">item2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">データを指定して削除するには <strong>remove メソッド</strong> を使用します。</div>
+<div class="line">remove メソッドは削除した項目をデータとして取得できません。</div>
+<div class="line">(remove メソッドには戻り値がありません)</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;python&quot;</span><span class="p">)</span> <span class="c1"># 項目 &quot;python&quot; を削除</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">データをすべて削除するには <strong>clear メソッド</strong> を使用します。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span> <span class="c1"># すべての項目を削除</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">pop メソッドは、リストに項目がないときや要素数よりも大きい数値を指定するとエラーとなります。</div>
+<div class="line">remove メソッドは、リストに対象のデータが存在しない場合エラーとなります。</div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="tuple">
+<h2><span class="section-number">2.5. </span>タプル (tuple)<a class="headerlink" href="#tuple" title="このヘッドラインへのパーマリンク"></a></h2>
+<p>リストと同様に複数のデータを格納できるデータ型です。</p>
+<div class="mb0 line-block">
+<div class="line">タプルは ( ) 内に項目をカンマ区切りで列挙して定義します。</div>
+<div class="line">対話モードで実際に試してみましょう。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tuple1</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;hiyoko&quot;</span><span class="p">,</span> <span class="s2">&quot;jobcrown&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">リストと違い、一度定義すると要素の追加・削除ができません。</div>
+<div class="line">要素の追加・削除ができない性質を <strong>イミュータブル</strong> といい、後述のディクショナリのキーに指定できます。</div>
+</div>
+<div class="mb0 line-block">
+<div class="line">また、( ) を使用しないでカンマ区切りで列挙すると自動的にタプルになります。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tuple2</span> <span class="o">=</span> <span class="mi">123</span><span class="p">,</span> <span class="mi">456</span><span class="p">,</span> <span class="mi">789</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">tuple2</span><span class="p">))</span> <span class="c1"># &lt;class &#39;tuple&#39;&gt;</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="set">
+<h2><span class="section-number">2.6. </span>セット (set)<a class="headerlink" href="#set" title="このヘッドラインへのパーマリンク"></a></h2>
+<p>リストと同様に複数のデータを定義できるデータ型です。</p>
+<div class="mb0 line-block">
+<div class="line">セットは { } 内に項目をカンマ区切りで列挙して定義します。</div>
+<div class="line">対話モードで実際に試してみましょう。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">set1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;hiyoko&quot;</span><span class="p">,</span> <span class="s2">&quot;jobcrown&quot;</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">set1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">リストと違い、重複したデータは追加できません。(自動的に削除されます)</div>
+<div class="line">また、スライスを使用して要素を取得することができません。</div>
+<div class="line">print 関数で set1 の中身を見て気づいたかもしれませんが、項目の順番が定義した時と変わっています。</div>
+<div class="line">セットは項目の順番を内部的なロジックで並べ替えてしまう性質があるのです。</div>
+<div class="line">これがスライスを使用できない理由です。(セットには順番の概念がないともいえます)</div>
+</div>
+<section id="id8">
+<h3><span class="section-number">2.6.1. </span>項目の追加<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="mb0 line-block">
+<div class="line">セットは項目の追加ができます。追加には <strong>add メソッド</strong> を使用します。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">set1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+<span class="n">set1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;python&quot;</span><span class="p">)</span> <span class="c1"># 重複したデータは無視されます</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">set1</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id9">
+<h3><span class="section-number">2.6.2. </span>項目の削除<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク"></a></h3>
+<p>セットの項目の削除はリストと同様に pop、remove、clear があり、それに合わせて discard というメソッドがあります。
+ただし、セットの性質上 pop メソッドでは要素番号の指定はできませんし、順番の概念がない = 末尾という概念もないため、どの項目が削除されるかわかりませんので使用は推奨されていません。
+discard は remove と同様のメソッドですが、対象のデータが存在しない場合でもエラーになりません。</p>
+<p>セットは主に <strong>集合演算</strong> に使用したり、リストやタプルから <strong>重複項目を削除したいとき</strong> に一時的にセットに変換するというような使い方をします。</p>
+</section>
+<section id="id10">
+<h3><span class="section-number">2.6.3. </span>集合演算の例<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="mb0 line-block">
+<div class="line">まずはセットを下記のように定義します。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">set1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;hiyoko&quot;</span><span class="p">,</span> <span class="s2">&quot;jobcrown&quot;</span><span class="p">}</span>
+<span class="n">set2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;jobcrown&quot;</span><span class="p">,</span> <span class="s2">&quot;ジョブクラウン&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">和集合: set1、set2 いずれかの集合に少なくとも一方に含まれる集合</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">set3</span> <span class="o">=</span> <span class="n">set1</span> <span class="o">|</span> <span class="n">set2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">set3</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/image_set1.png" src="_images/image_set1.png" />
+<div class="mb0 line-block">
+<div class="line">積集合: set1、set2 の集合に共通に含まれる集合</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">set4</span> <span class="o">=</span> <span class="n">set1</span> <span class="o">&amp;</span> <span class="n">set2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">set4</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/image_set2.png" src="_images/image_set2.png" />
+<div class="mb0 line-block">
+<div class="line">差集合: set1 から set2 に含まれる要素を差し引いた集合</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">set5</span> <span class="o">=</span> <span class="n">set1</span> <span class="o">-</span> <span class="n">set2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">set5</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/image_set3.png" src="_images/image_set3.png" />
+<div class="mb0 line-block">
+<div class="line">対象差: set1 のみに属する集合と、set2 のみに属する集合からなる集合</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">set6</span> <span class="o">=</span> <span class="n">set1</span> <span class="o">^</span> <span class="n">set2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">set6</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/image_set4.png" src="_images/image_set4.png" />
+</section>
+<section id="id11">
+<h3><span class="section-number">2.6.4. </span>リストから重複項目を削除する例<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="mb0 line-block">
+<div class="line">リストをセットに変換するには <strong>set 関数</strong> を使用します。</div>
+<div class="line">また、セットをリストに変換するには <strong>list 関数</strong> を使用します。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;jobcrown&quot;</span><span class="p">,</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;python&quot;</span><span class="p">]</span>
+<span class="n">list2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">list1</span><span class="p">))</span> <span class="c1"># list1 をセットに変換して、さらにリストに変換</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">上記の例では、list1 が一旦セットに変換される際に重複項目が削除されます。その後に再びリストに変換されます。</div>
+<div class="line">ただし、これにはひとつ注意点があります。</div>
+<div class="line">セットの性質上、項目の順番が入れ替わる可能性があるので、項目の順番を維持する必要がある場合は他の方法を検討しなければなりません。</div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="dict">
+<h2><span class="section-number">2.7. </span>ディクショナリ(dict)<a class="headerlink" href="#dict" title="このヘッドラインへのパーマリンク"></a></h2>
+<p>キー (key) に対する値 (value) の組合せのデータを複数格納できるデータ型です。</p>
+<div class="mb0 line-block">
+<div class="line">{ } 内にキーと値を : (コロン) で区切った組合せをカンマ区切りで列挙して定義します。</div>
+<div class="line">対話モードで実際に試してみましょう。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;python&quot;</span> <span class="p">:</span> <span class="s2">&quot;パイソン&quot;</span><span class="p">,</span> <span class="s2">&quot;hiyoko&quot;</span> <span class="p">:</span> <span class="s2">&quot;ひよこ&quot;</span><span class="p">,</span> <span class="s2">&quot;jobcrown&quot;</span><span class="p">:</span> <span class="s2">&quot;ジョブクラウン&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">ディクショナリは後ろに [ ] を付けてキーを渡すと対応する値が取得できます。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">[</span><span class="s2">&quot;jobcrown&quot;</span><span class="p">])</span> <span class="c1"># ジョブクラウン</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">項目の追加ディクショナリの後ろに [ ] を付けてキーと値を指定します。</div>
+<div class="line">重複したキーが定義された場合、後から定義した値で上書きされます。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dict1</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;データ&quot;</span>
+<span class="n">dict1</span><span class="p">[</span><span class="s2">&quot;jobcrown&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;株式会社ジョブクラウン&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">キーにはタプルが使用できます。 (リストやセットは使用できません)</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dict1</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="s2">&quot;データ1&quot;</span>
+<span class="n">dict1</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="s2">&quot;データ2&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="for">
+<h2><span class="section-number">2.8. </span>for文をもう少し深く理解する<a class="headerlink" href="#for" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="mb0 line-block">
+<div class="line">python の for 文はイテラブルオブジェクトの各要素に対して処理を行なう構文です。</div>
+<div class="line">他の言語で言うところの <strong>foreach</strong> と同等です。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">カウンタ変数</span> <span class="ow">in</span> <span class="n">イテラブルオブジェクト</span><span class="p">:</span>
+    <span class="n">処理</span>
+</pre></div>
+</div>
+<p>for 文でよく使用される range 関数は range オブジェクトというイテラブルオブジェクトを作成する関数なのです。</p>
+<div class="mb0 line-block">
+<div class="line">下記のようにすると変数 i には 0 から 9 まで順番に格納され、繰り返し処理を行っていきます。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">つまり、下記のようにしても同等の処理を行うことができます。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">list1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">str 型の変数もイテラブルオブジェクトなので for 文に使用できます。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;jobcrown&quot;</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">スライスを使うこともできます。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">text</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">イテラブルオブジェクトにディクショナリを指定すると、キーを取得できます。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;python&quot;</span> <span class="p">:</span> <span class="s2">&quot;パイソン&quot;</span><span class="p">,</span> <span class="s2">&quot;hiyoko&quot;</span> <span class="p">:</span> <span class="s2">&quot;ひよこ&quot;</span><span class="p">,</span> <span class="s2">&quot;jobcrown&quot;</span><span class="p">:</span> <span class="s2">&quot;ジョブクラウン&quot;</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dict1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">ディクショナリの値を取得したい場合は <strong>values メソッド</strong> を使用します。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dict1</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">ディクショナリのキーと値の組合せを取得したい場合は <strong>items メソッド</strong> を使用します。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dict1</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id12">
+<h2><span class="section-number">2.9. </span>演習問題<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="line-block">
+<div class="line">演習用ディレクトリに lesson2 というディレクトリを作成し、</div>
+<div class="line">各問題ごとに演習用のファイルを作成して、プログラムを作成しましょう。</div>
+</div>
+<section id="id13">
+<h3><span class="section-number">2.9.1. </span>演習1<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="mb0 line-block">
+<div class="line">ファイル名: practice1.py</div>
+<div class="line">1 から 100 までの間にあるすべての整数を含んだ list 型の変数 num_list を作成しよう。</div>
+</div>
+</section>
+<section id="id14">
+<h3><span class="section-number">2.9.2. </span>演習2<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="mb0 line-block">
+<div class="line">ファイル名: practice2.py</div>
+<div class="line">1 から 100 までの間にあるすべての偶数を含んだ list 型の変数 even_list を作成しよう。</div>
+</div>
+</section>
+<section id="id15">
+<h3><span class="section-number">2.9.3. </span>演習3<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="mb0 line-block">
+<div class="line">ファイル名: practice3.py</div>
+<div class="line">1 から 100 までの間にあるすべての奇数を含んだ list 型の変数 odd_list を range 関数を使わずに作成しよう。</div>
+</div>
+</section>
+<section id="id16">
+<h3><span class="section-number">2.9.4. </span>演習4<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="mb0 line-block">
+<div class="line">ファイル名: practice4.py</div>
+<div class="line">1 から 100 までの間にあるすべての 3 の倍数と 3 の付く整数を含む list 型の変数 san_list を作成しよう。</div>
+</div>
+</section>
+<section id="id17">
+<h3><span class="section-number">2.9.5. </span>演習5<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="mb0 line-block">
+<div class="line">ファイル名: practice5.py</div>
+<div class="line">下記のリスト型の変数 name_list は、name、company を含むディクショナリが格納されています。</div>
+<div class="line">この name_list に何件かデータを追加してみましょう。(実在の人物でなくても構いません)</div>
+<div class="line">company は jobcrown とそれ以外を織り交ぜてみましょう。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name_list</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;taro tsuyama&quot;</span><span class="p">,</span> <span class="s2">&quot;company&quot;</span> <span class="p">:</span> <span class="s2">&quot;jobcrown&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;hiyoko&quot;</span><span class="p">,</span> <span class="s2">&quot;company&quot;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>データを追加した name_list のうち、company が jobcrown のデータのみ name を表示するプログラムを作ってみよう。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="id18">
+<h2><span class="section-number">2.10. </span>おまけ<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="mb0 line-block">
+<div class="line">Python には <strong>内包表記</strong> というイテラブルオブジェクトからリストやディクショナリ等を作れる便利な機能があります。</div>
+<div class="line">少し理解しづらい書き方ですが、Python3 エンジニア認定基礎試験にも出題される内容なので覚えておいてもいいと思います。</div>
+</div>
+<div class="mb0 line-block">
+<div class="line">リスト内包表記の基本形は下記のように記述します。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">項目</span> <span class="k">for</span> <span class="n">変数</span> <span class="ow">in</span> <span class="n">イテラブルオブジェクト</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">(例) range 関数から 3 桁でゼロパディングした文字列のリストを作る</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">条件式も使えます。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">項目</span> <span class="k">for</span> <span class="n">変数</span> <span class="ow">in</span> <span class="n">イテラブルオブジェクト</span> <span class="k">if</span> <span class="n">条件式</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">(例) 数値や文字列等が混在するリストから、空白でない文字列のみを取り出したリストを作る</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arr2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;list&quot;</span><span class="p">,</span><span class="s2">&quot;list&quot;</span><span class="p">],</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;jobcrown&quot;</span><span class="p">]</span>
+<span class="n">arr3</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">arr2</span> <span class="k">if</span> <span class="n">item</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="o">==</span><span class="nb">str</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">こんなこともできます。 (特に意味はありません)</div>
+<div class="line">下記をファイルにコピペしてどんな動きになるか確認してみましょう。</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id19">
+<div class="code-block-caption"><span class="caption-text">list_comprehensions.py</span><a class="headerlink" href="#id19" title="このコードへのパーマリンク"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="n">ord_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">26666</span><span class="p">,</span> <span class="mi">24335</span><span class="p">,</span> <span class="mi">20250</span><span class="p">,</span> <span class="mi">31038</span><span class="p">,</span> <span class="mi">12472</span><span class="p">,</span> <span class="mi">12519</span><span class="p">,</span> <span class="mi">12502</span><span class="p">,</span> <span class="mi">12463</span><span class="p">,</span> <span class="mi">12521</span><span class="p">,</span> <span class="mi">12454</span><span class="p">,</span> <span class="mi">12531</span><span class="p">]</span>
+<span class="n">chr_list</span> <span class="o">=</span> <span class="p">[</span><span class="nb">chr</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">ord_list</span><span class="p">]</span> <span class="c1"># リスト内法表記</span>
+
+<span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">chr_list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="start_python.html" class="btn btn-neutral float-left" title="1. Python を始めよう" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="function.html" class="btn btn-neutral float-right" title="3. 関数" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Taro Tsuyama.
+      <span class="lastupdated">最終更新: 5月 09, 2022
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. 関数 &mdash; ジョブクラウン Python 勉強会 学習用資料</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        <script src="_static/link_control.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="4. ライブラリ・モジュール" href="library.html" />
+    <link rel="prev" title="2. イテラブルオブジェクト" href="iterable.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Python 勉強会 ドキュメント
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="hiyoko_index.html">ひよこコース</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="start_python.html">1. Python を始めよう</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterable.html">2. イテラブルオブジェクト</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3. 関数</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">3.1. 関数とは</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">3.2. 組込み関数</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#print">3.2.1. print 関数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#abs">3.2.2. abs 関数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#len">3.2.3. len 関数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#zip">3.2.4. zip 関数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">3.3. ユーザ定義関数</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">3.3.1. 位置引数とキーワード引数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">3.4. スコープ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">3.5. 再帰</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">3.6. 高階関数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">3.7. ラムダ式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">3.8. おまけ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="library.html">4. ライブラリ・モジュール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class.html">5. クラス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_exam.html">6. Python3エンジニア認定基礎試験</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python 勉強会 ドキュメント</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="hiyoko_index.html">ひよこコース</a> &raquo;</li>
+      <li><span class="section-number">3. </span>関数</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">3. </span>関数<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク"></a></h1>
+<section id="id2">
+<h2><span class="section-number">3.1. </span>関数とは<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="mb0 line-block">
+<div class="line">プログラミング言語でいうところの関数とは「いくつかの処理をまとめて、ひとつの機能にしたもの」といえます。</div>
+<div class="line"><br /></div>
+<div class="line">関数といえば Excel にもありますよね。</div>
+<div class="line">あれも仕組みとしてはプログラミング言語の関数と同等のものです。</div>
+<div class="line"><br /></div>
+<div class="line">例として Excel の SUM 関数を見てみましょう。</div>
+<div class="line">これは渡したセルに含まれる数値の合計値を返すという関数です。</div>
+</div>
+<img alt="_images/image019.png" src="_images/image019.png" />
+<div class="mb0 line-block">
+<div class="line">この「渡す」とか「返す」といった概念が重要で関数に渡すデータのことを <strong>引数（ひきすう）</strong> 、関数が返すデータのことを <strong>戻り値</strong> または返り値といったりします。</div>
+<div class="line"><br /></div>
+<div class="line">関数は引数でデータを入力して、関数の内部で処理を行ったデータを戻り値として出力するというのが最も一般的な形です。（引数や戻り値のない関数もあります）</div>
+</div>
+<img alt="_images/image020.png" src="_images/image020.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id3">
+<h2><span class="section-number">3.2. </span>組込み関数<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="mb0 line-block">
+<div class="line">組込み関数とは、あらかじめ用意されている関数のことです。</div>
+<div class="line">Python の組込み関数は下記ページに記載されています。</div>
+<div class="line"><a class="reference external" href="https://docs.python.org/ja/3/library/functions.html">https://docs.python.org/ja/3/library/functions.html</a></div>
+<div class="line"><br /></div>
+<div class="line">よく使う組込み関数についていくつか紹介していきます。</div>
+</div>
+<section id="print">
+<h3><span class="section-number">3.2.1. </span>print 関数<a class="headerlink" href="#print" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="mb0 line-block">
+<div class="line">引数で渡したデータをコンソールに表示する関数。</div>
+<div class="line">この関数は戻り値がありません。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;jobcrown&quot;</span><span class="p">)</span> <span class="c1"># 画面に文字を表示するだけで、戻り値は返さない。</span>
+</pre></div>
+</div>
+</section>
+<section id="abs">
+<h3><span class="section-number">3.2.2. </span>abs 関数<a class="headerlink" href="#abs" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="mb0 line-block">
+<div class="line">引数で渡した数値の絶対値を返す。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">value1</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
+<span class="n">value2</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">value1</span><span class="p">)</span> <span class="c1"># abs 関数の戻り値を変数 value2 に代入</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">value1</span><span class="p">,</span> <span class="n">value2</span><span class="p">)</span> <span class="c1"># -10 10</span>
+</pre></div>
+</div>
+</section>
+<section id="len">
+<h3><span class="section-number">3.2.3. </span>len 関数<a class="headerlink" href="#len" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="mb0 line-block">
+<div class="line">引数で渡したイテラブルオブジェクトの要素数を返す。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">value_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;jobcrown&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">value_list</span><span class="p">))</span> <span class="c1"># 5</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">))</span> <span class="c1"># 8</span>
+</pre></div>
+</div>
+</section>
+<section id="zip">
+<h3><span class="section-number">3.2.4. </span>zip 関数<a class="headerlink" href="#zip" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="mb0 line-block">
+<div class="line">二つのイテラブルオブジェクトの各項目を組み合わせたタプルを列挙したイテラブルオブジェクトを返す。</div>
+<div class="line">(あまり使いませんが Python3 エンジニア認定基礎試験で出題されるので紹介します。)</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">value_list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">value_list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;jobcrown&quot;</span>
+
+<span class="n">zip_obj1</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">value_list1</span><span class="p">,</span> <span class="n">value_list2</span><span class="p">)</span>
+<span class="n">zip_obj2</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">zip_obj1</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">zip_obj1</span><span class="p">))</span> <span class="c1"># [(1, 6), (2, 7), (3, 8), (4, 9)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">zip_obj2</span><span class="p">))</span> <span class="c1"># [((1, 6), &#39;j&#39;), ((2, 7), &#39;o&#39;), ((3, 8), &#39;b&#39;), ((4, 9), &#39;c&#39;)]</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="id4">
+<h2><span class="section-number">3.3. </span>ユーザ定義関数<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="mb0 line-block">
+<div class="line">関数はユーザが自由に定義することもできます。</div>
+<div class="line">関数の定義には <strong>def 構文</strong> を使用します。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">関数名</span><span class="p">(</span><span class="n">引数</span><span class="p">):</span>
+    <span class="n">処理</span>
+    <span class="k">return</span> <span class="n">戻り値</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">例として下記のような「あいさつ関数」を定義してみましょう。</div>
+</div>
+<img alt="_images/image021.png" src="_images/image021.png" />
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;こんにちは&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;さん&quot;</span>
+    <span class="k">return</span> <span class="n">message</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">greeting</span><span class="p">(</span><span class="s2">&quot;津山&quot;</span><span class="p">))</span> <span class="c1"># こんにちは津山さん</span>
+</pre></div>
+</div>
+<section id="id5">
+<h3><span class="section-number">3.3.1. </span>位置引数とキーワード引数<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="mb0 line-block">
+<div class="line">関数を呼び出すとき、引数を指定する方法として位置引数とキーワード引数というものがあります。</div>
+<div class="line"><br /></div>
+<div class="line">例えば、下記のような関数を考えます。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_func</span><span class="p">(</span><span class="n">item_name</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;商品名 : </span><span class="si">{</span><span class="n">item_name</span><span class="si">}</span><span class="se">\n</span><span class="s2">価格 : </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="se">\n</span><span class="s2">説明 : </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">関数を呼び出すとき、関数定義で定義してある引数 ( <strong>仮引数</strong> といいます) と同じ位置で引数を指定する方式を <strong>位置引数</strong> といいます。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">test_func</span><span class="p">(</span><span class="s2">&quot;商品A&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;これは商品Aです&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">関数を呼び出すときに 仮引数 = 引数 の形式で指定する方式を <strong>キーワード引数</strong> といいます。</div>
+<div class="line">引数の位置は関数定義で定義してある仮引数の位置と違っていても問題ありません。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">test_func</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;200&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;これは商品Bです&quot;</span><span class="p">,</span> <span class="n">item_name</span><span class="o">=</span><span class="s2">&quot;商品B&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">また、位置引数とキーワード引数は併用することができます。</div>
+<div class="line">ただし、その場合は必ず位置引数を先に指定しなければいけません。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">test_func</span><span class="p">(</span><span class="s2">&quot;商品C&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;これは商品Cです&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;300&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="id6">
+<h2><span class="section-number">3.4. </span>スコープ<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="mb0 line-block">
+<div class="line">関数の外からは関数の中の変数を参照することはできません。</div>
+<div class="line">反対に、関数の中からは関数の外にある変数を参照できます。</div>
+<div class="line">この仕組みをスコープといいます。</div>
+<div class="line"><br /></div>
+<div class="line">分かりやすく説明すると、下図のような感じで関数の外からは関数の中は見えませんが関数の中からは関数の外が見えます。</div>
+<div class="line">関数の外の変数をグローバル変数、関数の中の変数をローカル変数といいます。</div>
+</div>
+<img alt="_images/image022.png" src="_images/image022.png" />
+<div class="mb0 line-block">
+<div class="line">上図の関数F内で変数Aを上書きしている部分は、上書きというよりも関数内で再定義しているという表現の方が近いかもしれません。</div>
+<div class="line">通常の変数の場合、関数内で上書きしても関数の外には影響ありませんが、</div>
+<div class="line">リスト等の要素を変更した場合は関数の外でも反映されます。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="k">def</span> <span class="nf">func1</span><span class="p">():</span>
+    <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="n">func1</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="c1"># [100, 2, 3]</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id7">
+<h2><span class="section-number">3.5. </span>再帰<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="mb0 line-block">
+<div class="line">関数の中で、その関数自信を呼び出して繰り返し処理を行う再帰という手法があります。</div>
+<div class="line">再帰を使うことで、より短いコードで処理を実行することができます。</div>
+<div class="line"><br /></div>
+<div class="line">例えば、下記に階乗を計算する関数を示します。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fact</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">num</span> <span class="o">*</span> <span class="n">fact</span><span class="p">(</span><span class="n">num</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 関数 fact を再帰呼び出し</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">fact</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># 6</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fact</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># 120</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">再帰は直感的には分かりづらいですが、下図のような処理の流れになります。</div>
+</div>
+<img alt="_images/image023.png" src="_images/image023.png" />
+<div class="mb0 line-block">
+<div class="line">関数中に再帰呼び出しを行うとその関数での処理は一旦中断して呼び出された関数の処理に移ります。</div>
+<div class="line">その関数の中でも再帰呼び出しが行われると、その処理も一旦中断して次の関数の処理...と進んでいきます。</div>
+<div class="line">最終的に関数を終了する条件を満たすとひとつ前の関数に戻り値を返す処理を順次繰り返し、一番最初の関数まで戻っていき処理を終了します。</div>
+<div class="line"><br /></div>
+<div class="line">中断した関数の処理は <strong>スタック</strong> というメモリ領域に保存されていきますが、関数の終了条件を誤ると永遠に再帰呼び出しが行われ、スタックの容量がいっぱいになってしまうスタックオーバーフローという状態になり、エラーとして処理が途中で終了してしまいます。</div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id8">
+<h2><span class="section-number">3.6. </span>高階関数<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="mb0 line-block">
+<div class="line">引数として関数を受け取ったり、戻り値として関数を返したりする関数を <strong>高階関数</strong> といいます。</div>
+<div class="line">例えば組込み関数の <strong>filter 関数</strong> は引数で関数を受け取る高階関数です。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">filter</span><span class="p">(</span><span class="n">関数</span><span class="p">,</span> <span class="n">イテラブルオブジェクト</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">上記のように、第一引数に関数を、第二引数にイテラブルオブジェクトを指定します。</div>
+<div class="line">この filter 関数はイテラブルオブジェクトの各要素から関数が True を返すものだけからなる filter オブジェクトというイテラブルオブジェクトを返します。</div>
+<div class="line"><br /></div>
+<div class="line">以下に例を示します。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">is_odd</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span> <span class="c1"># 引数が偶数の時 True を返す関数</span>
+    <span class="k">return</span> <span class="n">arg</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
+
+<span class="n">odd_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="n">is_odd</span><span class="p">,</span> <span class="n">arr</span><span class="p">))</span> <span class="c1"># filter 関数は filter オブジェクトを返すので、list 関数でリストに変換している</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">odd_list</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id9">
+<h2><span class="section-number">3.7. </span>ラムダ式<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="mb0 line-block">
+<div class="line">ラムダ式（lambda 式）とは無名関数と呼ばれる関数で、一行で記述ができます。</div>
+</div>
+<p>lambda 引数: 戻り値</p>
+<div class="mb0 line-block">
+<div class="line">例えば、前節で例として示した関数 is_odd をラムダ式で記述すると以下のようになります。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">単純な処理の関数ならばラムダ式を使用することでコードをよりシンプルにすることができるのです。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+
+<span class="n">odd_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">arr</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">odd_list</span><span class="p">)</span> <span class="c1"># [2, 4, 6]</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id10">
+<h2><span class="section-number">3.8. </span>おまけ<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="mb0 line-block">
+<div class="line">再帰を使い数独を解くサンプルプログラムを作ってみましたので遊んでみてください。</div>
+<div class="line"><br /></div>
+<div class="line">まずは下記リンクを右クリックで保存しましょう。</div>
+<div class="line"><a class="reference external" href="https://github.com/TaroTsuyama/py_study/raw/master/sudoku/sudoku_solver.py">https://github.com/TaroTsuyama/py_study/raw/master/sudoku/sudoku_solver.py</a></div>
+<div class="line"><br /></div>
+<div class="line">サンプルプログラムでは世界一難しい数独といわれる下記の問題を使用しています。</div>
+<div class="line"><a class="reference external" href="https://gigazine.net/news/20100822_hardest_sudoku/">https://gigazine.net/news/20100822_hardest_sudoku/</a></div>
+<div class="line"><br /></div>
+<div class="line">数独の問題は下記のような2次元のリストで表現していて、空白マスは 0 としています。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sudoku</span> <span class="o">=</span> <span class="p">[</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">この部分を書き換えればどんな数独の問題でも一瞬で解けてしまいますので色々触って試してみてください。</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="iterable.html" class="btn btn-neutral float-left" title="2. イテラブルオブジェクト" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="library.html" class="btn btn-neutral float-right" title="4. ライブラリ・モジュール" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Taro Tsuyama.
+      <span class="lastupdated">最終更新: 5月 09, 2022
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

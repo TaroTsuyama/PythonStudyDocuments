@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. クラス &mdash; ジョブクラウン Python 勉強会 学習用資料</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        <script src="_static/link_control.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="6. Python3エンジニア認定基礎試験" href="python_exam.html" />
+    <link rel="prev" title="4. ライブラリ・モジュール" href="library.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Python 勉強会 ドキュメント
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="hiyoko_index.html">ひよこコース</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="start_python.html">1. Python を始めよう</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterable.html">2. イテラブルオブジェクト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html">3. 関数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="library.html">4. ライブラリ・モジュール</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5. クラス</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">5.1. まずはゲームをプレイしてみよう</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">5.2. クラスとは</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#property-setter">5.3. property と setter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">5.4. コンストラクタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">5.5. 継承</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">5.6. ゲームのプログラムを見てみよう</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python_exam.html">6. Python3エンジニア認定基礎試験</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python 勉強会 ドキュメント</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="hiyoko_index.html">ひよこコース</a> &raquo;</li>
+      <li><span class="section-number">5. </span>クラス</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">5. </span>クラス<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク"></a></h1>
+<div class="mb0 line-block">
+<div class="line">この章ではジョブクラウンが巨大企業に立ち向かっていく系のシューティングゲーム「がんばれジョブクラウン」というゲームを作成(未完成)したので、ゲームのプログラムを通してクラス (ついでにライブラリも) について学んでいきます。</div>
+<div class="line"><br /></div>
+<div class="line">↓ゲーム実行イメージ</div>
+</div>
+<img alt="_images/image024.png" src="_images/image024.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<section id="id2">
+<h2><span class="section-number">5.1. </span>まずはゲームをプレイしてみよう<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="mb0 line-block">
+<div class="line">ゲームのソースは下記リンクのファイル内 shooting_game 以下のファイルを使用します。</div>
+<div class="line"><a class="reference external" href="https://github.com/TaroTsuyama/py_study/archive/master.zip">https://github.com/TaroTsuyama/py_study/archive/master.zip</a></div>
+<div class="line"><br /></div>
+<div class="line">ファイル一式を PC の適当な場所にダウンロードして Python で実行してみましょう。(Windows 以外で動くかはわかりません…)</div>
+<div class="line">Python をダウンロードしたままではゲームは動かないので、コマンドプロンプト(またはターミナル)で次のコマンドを実行してください。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pygame</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">なお、mac では特に設定していない場合 pip3 とする必要があります。</div>
+<div class="line"><br /></div>
+<div class="line">↑ ↓ ← → のキーでジョブクラウンを動かして、スペースキーで攻撃します。</div>
+<div class="line">敵の弾が 3 回当たったらゲームオーバーです。敵同士でつぶしあうこともあります。</div>
+<div class="line">ご覧の通り、スコア等の表示もなく効果音もありません。</div>
+<div class="line"><br /></div>
+<div class="line">また、私はゲーム制作の経験がないので「ゲームのサンプルコード」としてはあまり参考にならないかもしれません。</div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id3">
+<h2><span class="section-number">5.2. </span>クラスとは<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="mb0 line-block">
+<div class="line">クラスとは、簡単に言えばオブジェクトの設計図です。</div>
+<div class="line">オブジェクトとは <a class="reference internal" href="iterable.html"><span class="doc">イテラブルオブジェクト</span></a> で簡単に説明してある通り物体を模したデータのことで、オブジェクト指向というプログラミングの方式においてとても重要な概念です。</div>
+<div class="line"><br /></div>
+<div class="line">クラスはあくまでも設計図なので、それ単体では機能しません。</div>
+<div class="line">その設計図からモノを作って利用します。</div>
+<div class="line">クラスから作成したオブジェクトを <strong>インスタンス</strong> といいます。</div>
+<div class="line"><br /></div>
+<div class="line">たとえば、車を表すクラス Car を次のように定義します。</div>
+<div class="line">.py ファイルを作成して実行しましょう。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;white&quot;</span> <span class="c1"># 車体カラー</span>
+    <span class="n">exhaust</span> <span class="o">=</span> <span class="mi">1800</span> <span class="c1"># 排気量</span>
+    <span class="n">speed</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># 速度</span>
+
+    <span class="k">def</span> <span class="nf">acceleration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># 加速メソッド</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="nf">deceleration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># 減速メソッド</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">-=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">クラス内で変数を定義するとプロパティとなり、関数を定義するとメソッドになります。</div>
+<div class="line">メソッドの第一引数は自分自身を表す self というキーワードを指定します。</div>
+<div class="line"><br /></div>
+<div class="line">定義したクラスのインスタンスを生成するには以下のようにします。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">car1</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">この変数car1はCar型のオブジェクトといえます。</div>
+<div class="line">内部には定義したプロパティやメソッドを持っています。</div>
+<div class="line"><br /></div>
+<div class="line">オブジェクトのプロパティやメソッドにアクセスするには . (ドット) 区切りで指定します。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">car1</span><span class="o">.</span><span class="n">color</span><span class="p">)</span> <span class="c1"># white</span>
+<span class="n">car1</span><span class="o">.</span><span class="n">acceleration</span><span class="p">()</span> <span class="c1"># メソッド acceleration を呼び出す。カッコを忘れずに！</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">car1</span><span class="o">.</span><span class="n">speed</span><span class="p">)</span> <span class="c1"># 1</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">また、下記のようにプロパティを直接書き換えてしまうことも可能です。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">car1</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">しかし、これではいろいろ不都合があるのです。</div>
+<div class="line">上記の例では文字列で &quot;red&quot; としていましたが、例えば数値で 100 とか本来想定されている型以外の値が入力されたらプログラムは正しく動かないということは想像できるでしょうか。</div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="property-setter">
+<h2><span class="section-number">5.3. </span>property と setter<a class="headerlink" href="#property-setter" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="mb0 line-block">
+<div class="line">プロパティを直接書き換えさせたくないときは property と setter を使います。</div>
+<div class="line"><br /></div>
+<div class="line">覚えなくてもいいとは思いますが、処理の内容は理解できるようにしましょう。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+    <span class="n">_color</span> <span class="o">=</span> <span class="s2">&quot;white&quot;</span>
+
+    <span class="nd">@property</span> <span class="c1"># プロパティを参照するときはこちらが呼び出される</span>
+    <span class="k">def</span> <span class="nf">color</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_color</span>
+
+    <span class="nd">@color</span><span class="o">.</span><span class="n">setter</span> <span class="c1"># プロパティを書き換えるときはこちらが呼び出される</span>
+    <span class="k">def</span> <span class="nf">color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">color_string</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">color_string</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span> <span class="c1"># 引数の型が str の時のみ書き換えを行う</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_color</span> <span class="o">=</span> <span class="n">color_string</span>
+
+<span class="n">car2</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">car2</span><span class="o">.</span><span class="n">_color</span><span class="p">)</span> <span class="c1"># white</span>
+
+<span class="n">car2</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">car2</span><span class="o">.</span><span class="n">_color</span><span class="p">)</span> <span class="c1"># white</span>
+
+<span class="n">car2</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">car2</span><span class="o">.</span><span class="n">_color</span><span class="p">)</span> <span class="c1"># red</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">上記の例だと Car クラスの車体カラーを表す変数は先頭にアンダースコアが付いた _color となっているのですが、インスタンスでアクセスしているアトリビュートにはアンダースコアがない color となっています。</div>
+<div class="line">これは Car クラスの車体カラーを表す変数を内部的には _color とすることでデータを <strong>隠ぺい</strong> しているのです。</div>
+<div class="line"><br /></div>
+<div class="line">color でアクセスしているのは property および setter なのです。</div>
+<div class="line">プロパティを参照しようとすると property の処理が呼ばれ、代入しようとすると setter の処理が呼ばれます。</div>
+<div class="line">setter で代入しようとする値の要件をチェックするような処理を行うと、想定していないデータは代入できない賢いプログラムができるのです。</div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id4">
+<h2><span class="section-number">5.4. </span>コンストラクタ<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="mb0 line-block">
+<div class="line">クラスのインスタンスを生成するときにプロパティを引数で指定したいという場合があります。</div>
+<div class="line">そんな時はコンストラクタを使います。</div>
+<div class="line">また、初期値としたいプロパティもコンストラクタ内に記述するのが一般的だと思います。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">exhaust</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exhaust</span> <span class="o">=</span> <span class="n">exhaust</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mileage</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># 走行距離。初期値として0を設定。</span>
+
+<span class="n">car3</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="mi">2500</span><span class="p">)</span>
+<span class="n">car4</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="mi">1800</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line"><strong>__init__</strong> というメソッドがコンストラクタです。</div>
+<div class="line">他のメソッド同様に第一引数はselfというキーワードを指定します。</div>
+<div class="line">Carクラスのインスタンス生成時に引数を渡すことで異なるパラメータを持ったインスタンスが生成されていることがわかるでしょうか。</div>
+<div class="line"><br /></div>
+<div class="line">なお、コンストラクタ以外のメソッドにも当てはまるのですが、第一引数の self はメソッドの呼び出し時には入力する必要はありません。</div>
+<div class="line">つまり、Car(self, &quot;blue&quot;, 2500) ではなく Car(&quot;blue&quot;, 2500) となるわけです。</div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id5">
+<h2><span class="section-number">5.5. </span>継承<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="mb0 line-block">
+<div class="line">オブジェクト指向プログラミングを行う上で重要な概念の一つに <strong>継承</strong> (インヘリタンス) というものがあります。</div>
+<div class="line">これは、すでにあるクラスの機能を引き継いで派生した別のクラスを作ることができるというものです。</div>
+<div class="line"><br /></div>
+<div class="line">例えば、今回作成したサンプルプログラムでは自機を表す Player クラスと、敵機を表す Enemy クラスがあるのですが、これらは下図のように一部に共通の機能を持っています。</div>
+</div>
+<img alt="_images/image025.png" src="_images/image025.png" />
+<div class="mb0 line-block">
+<div class="line">この、共通する機能について修正がある場合、同じ機能を持つすべてのクラスを修正する必要があります。</div>
+<div class="line">そんなとき、共通する部分を一つのクラスにまとめて、そこからそれぞれ派生したクラスに継承させれば修正は一度で済むし修正ミスの心配も減るしコードもすっきりするのです。</div>
+</div>
+<img alt="_images/image026.png" src="_images/image026.png" />
+<div class="mb0 line-block">
+<div class="line">この継承元のクラスを親クラス (またはスーパークラス)、継承先のクラスを子クラスと言ったりします。</div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id6">
+<h2><span class="section-number">5.6. </span>ゲームのプログラムを見てみよう<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="mb0 line-block">
+<div class="line">ここまで来たらサンプルゲームのコードが少しはわかるようになっているはずです。</div>
+<div class="line"><br /></div>
+<div class="line">サンプルゲームは今のところ下記のような問題があります。</div>
+<div class="line"><br /></div>
+<div class="line">* 音がない</div>
+<div class="line">* スコア表示がない</div>
+<div class="line">* 弾のパターンが 1 種類しかない → アイテム等を取得すると変化するようにしたい</div>
+<div class="line">* 敵の動き方がきもちわるい</div>
+<div class="line">* ライフ残量がわからない→自機のライフ表示したい</div>
+<div class="line">* ライフが 3 で固定 → 敵機のライフは変化させたい</div>
+<div class="line">* コードを我流で書いている部分が多くあるのですっきりさせたい。</div>
+<div class="line"><br /></div>
+<div class="line">他にもいろいろあると思います。</div>
+<div class="line">各自コードを自由に改変して、より面白いゲームをぜひ作ってみてください！(投げやり)</div>
+<div class="line"><br /></div>
+<div class="line">結構いい加減な部分もあると思いますが、きっと Python を学ぶ上でヒントになることは少なくないと思います。</div>
+<div class="line">わからないことがあればどんどん聞いてください！</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="library.html" class="btn btn-neutral float-left" title="4. ライブラリ・モジュール" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="python_exam.html" class="btn btn-neutral float-right" title="6. Python3エンジニア認定基礎試験" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Taro Tsuyama.
+      <span class="lastupdated">最終更新: 5月 09, 2022
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. Python3エンジニア認定基礎試験 &mdash; ジョブクラウン Python 勉強会 学習用資料</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        <script src="_static/link_control.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="prev" title="5. クラス" href="class.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Python 勉強会 ドキュメント
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="hiyoko_index.html">ひよこコース</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="start_python.html">1. Python を始めよう</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterable.html">2. イテラブルオブジェクト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html">3. 関数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="library.html">4. ライブラリ・モジュール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class.html">5. クラス</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6. Python3エンジニア認定基礎試験</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">6.1. どんな試験？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">6.2. この資格を取得する意味とは</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">6.2.1. 職務経歴書に書く資格が一つ増える</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#python">6.2.2. Pythonの基礎が習得できる</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">6.2.3. 基本情報技術者試験の午後問題対策ができる</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">6.2.4. 一つ言語を習得できれば他言語の習得もスムーズになる</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">6.2.5. 資格報奨金がもらえる</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">6.3. 勉強方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">6.4. 模擬試験に挑戦してみよう</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">6.5. 模擬試験の解説(抜粋)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id10">6.5.1. 解説1.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">6.5.2. 解説2.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">6.5.3. 解説3.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">6.5.4. 解説4.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">6.5.5. 解説.5</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">6.5.6. 解説.6</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">6.5.7. 解説.7</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">6.5.8. 解説.8</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">6.5.9. 解説.9</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">6.6. 受験までの流れと注意点</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id20">6.6.1. 試験当日に必要なものについて</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id21">6.6.2. 資格報奨金申請について</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">6.7. 最後に</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python 勉強会 ドキュメント</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="hiyoko_index.html">ひよこコース</a> &raquo;</li>
+      <li><span class="section-number">6. </span>Python3エンジニア認定基礎試験</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="python3">
+<h1><span class="section-number">6. </span>Python3エンジニア認定基礎試験<a class="headerlink" href="#python3" title="このヘッドラインへのパーマリンク"></a></h1>
+<section id="id1">
+<h2><span class="section-number">6.1. </span>どんな試験？<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="mb0 line-block">
+<div class="line">Python 3 エンジニア認定基礎試験とは、一般社団法人 Python エンジニア育成推進協会が主催している Python の基礎知識を問う試験です。</div>
+<div class="line">全 40 問の選択式で、合格ラインは正答率 70% です。</div>
+<div class="line"><br /></div>
+<div class="line">詳細はこちら。</div>
+<div class="line"><a class="reference external" href="https://www.pythonic-exam.com/exam/basic">https://www.pythonic-exam.com/exam/basic</a></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id2">
+<h2><span class="section-number">6.2. </span>この資格を取得する意味とは<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="mb0 line-block">
+<div class="line">率直なところ、この資格だけ持っていても対外的に技術力を有しているというアピールにはあまりならないと考えています。</div>
+<div class="line">では、なぜこの資格取得を推奨しているかというと下記のような点が挙げられます。</div>
+</div>
+<ul class="simple">
+<li><p>職務経歴書に書く資格が一つ増える</p></li>
+<li><p>Pythonの基礎が習得できる</p></li>
+<li><p>基本情報技術者試験の午後問題対策ができる</p></li>
+<li><p>一つ言語を習得できれば他言語の習得もスムーズになる</p></li>
+<li><p>資格報奨金がもらえる</p></li>
+</ul>
+<p>一点ずつ解説していきます。</p>
+<section id="id3">
+<h3><span class="section-number">6.2.1. </span>職務経歴書に書く資格が一つ増える<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="mb0 line-block">
+<div class="line">職務経歴書は今までどのような業務を行っていたかということが重要になりますが、未経験の人は書くことがそんなに多くないかと思います。</div>
+<div class="line"><br /></div>
+<div class="line">そこで、資格欄に取得した資格を記載することでどんなことを学んできたかというアピールにはなると思います。</div>
+<div class="line">例えば、ある技術を有していてもそれに関する資格の有無で説得力は違ってくるでしょう。</div>
+<div class="line"><br /></div>
+<div class="line">何よりも、所持している資格が増えるということは自信につながるはずです。</div>
+</div>
+</section>
+<section id="python">
+<h3><span class="section-number">6.2.2. </span>Pythonの基礎が習得できる<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="mb0 line-block">
+<div class="line">Python 3 エンジニア認定基礎試験は Python の基礎的な知識を問う問題で構成されているので、試験勉強を通して Python の知識を高めることができます。</div>
+</div>
+</section>
+<section id="id4">
+<h3><span class="section-number">6.2.3. </span>基本情報技術者試験の午後問題対策ができる<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="mb0 line-block">
+<div class="line">2020 年から基本情報技術者試験の午後問題では COBOL の問題が廃止され、新たに Python の問題が出題されます。</div>
+<div class="line">午後問題はいくつかある問題のうち 5 問選択して回答する方式なので Python の問題を選択しなくてもいいのですが、Python の知識があれば大分有利になると思います。</div>
+<div class="line"><br /></div>
+<div class="line">サンプル問題も公開されています。</div>
+<div class="line"><a class="reference external" href="https://www.jitec.ipa.go.jp/1_13download/fe_python_sample.pdf">https://www.jitec.ipa.go.jp/1_13download/fe_python_sample.pdf</a></div>
+</div>
+</section>
+<section id="id5">
+<h3><span class="section-number">6.2.4. </span>一つ言語を習得できれば他言語の習得もスムーズになる<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="mb0 line-block">
+<div class="line">プログラミング言語の文法や仕様は言語ごとに異なりますが、基本的な考え方は共通する部分が多くありますので一つ言語を習得できれば他言語の習得もスムーズになるという考えが一般的です。</div>
+</div>
+</section>
+<section id="id6">
+<h3><span class="section-number">6.2.5. </span>資格報奨金がもらえる<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="mb0 line-block">
+<div class="line">Python 3 エンジニア認定基礎試験の受験料は 10000 円 (税別) と決して安くはありませんが、ジョブクラウンでは試験に合格した場合に限り受験料が戻ってくるし、それとは別に資格報奨金がもらえます。</div>
+<div class="line">Python を学ぶことができて、ついでにお金がもらえると考えればモチベーションになる人もいるでしょう。</div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="id7">
+<h2><span class="section-number">6.3. </span>勉強方法<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="mb0 line-block">
+<div class="line">Python 3 エンジニア認定基礎試験は主教材としてオライリー・ジャパン「Pythonチュートリアル 第3版」という書籍を指定しています。</div>
+<div class="line">これはいわゆる Python の入門書といったものなので、同様の入門書をすでに持っている場合は新たに購入する必要はないかと思います。</div>
+<div class="line"><br /></div>
+<div class="line">なお、Python 勉強会: ひよこコース ではこういった書籍を購入しなくても試験合格に必要なだけの知識の習得ができる構成になっています。(合格者の実績もあります！)</div>
+<div class="line">また、この試験は過去問題を公開していないのですが認定スクールで模擬試験を無料公開していますのでぜひ利用してください。</div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id8">
+<h2><span class="section-number">6.4. </span>模擬試験に挑戦してみよう<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="mb0 line-block">
+<div class="line">認定スクールの Dive into Code というところで Python3エンジニア認定基礎模擬試験 β版 という模擬試験が公開されています。</div>
+<div class="line"><a class="reference external" href="https://exam.diveintocode.jp/exam">https://exam.diveintocode.jp/exam</a></div>
+<div class="line"><br /></div>
+<div class="line">アカウントを登録する必要があるので、まずは登録してから模擬試験を開始しましょう。</div>
+<div class="line">全体的に言えることなのですがわからない問題があった場合、まずは実際にコードを動かしてみると理解が早いと思います。</div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id9">
+<h2><span class="section-number">6.5. </span>模擬試験の解説(抜粋)<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="line-block">
+<div class="line">Python3エンジニア認定基礎模擬試験 β版 のうち、比較的難しそうな問題について解説していきます。</div>
+</div>
+<section id="id10">
+<h3><span class="section-number">6.5.1. </span>解説1.<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="quotation line-block">
+<div class="line">Python インタープリタにて以下のように入力した場合の出力結果として正しいものを選びなさい。</div>
+<div class="line"><br /></div>
+<div class="line">&gt;&gt;&gt;import reprlib</div>
+<div class="line">&gt;&gt;&gt;reprlib.repr(set('diveintocode'))</div>
+<div class="line"><br /></div>
+<div class="line">・ Syntax Errorとなる。</div>
+<div class="line">・ &quot;{'v', 'n', 't', 'c', ...}&quot;</div>
+<div class="line">・ &quot;{'c', 'd', 'e', 'i', 'n', 'o', ...}&quot;</div>
+<div class="line">・ &quot;{'d', 'e', 'i', 'o', ...}&quot;</div>
+</div>
+<div class="mb0 line-block">
+<div class="line">さっそくわけが分からない問題です。</div>
+<div class="line">reprlib なんてライブラリは今のところ私は使ったことがありません。</div>
+<div class="line">とりあえず対話モードで問題文のコードを実行してみましょう。</div>
+<div class="line"><br /></div>
+<div class="line">&quot;{'c', 'd', 'e', 'i', 'n', 'o', ...}&quot; となりますね・・・。</div>
+<div class="line">なんでこうなるのかさっぱりわかりません。</div>
+<div class="line">公式ドキュメントを見てみましょう。</div>
+<div class="line"><a class="reference external" href="https://docs.python.org/ja/3/library/reprlib.html">https://docs.python.org/ja/3/library/reprlib.html</a></div>
+<div class="line"><br /></div>
+<div class="line">このように書いてあります。</div>
+</div>
+<div class="quotation line-block">
+<div class="line">reprlib.repr(obj)</div>
+<div class="line">これは aRepr の repr() メソッドです。同じ名前の組み込み関数が返す文字列と似ていますが、最大サイズに制限のある文字列を返します。</div>
+</div>
+<div class="mb0 line-block">
+<div class="line">さらに、ページの中ほどを見ると下記のような記述があります。</div>
+</div>
+<div class="quotation line-block">
+<div class="line">Repr.maxlevel</div>
+<div class="line">再帰的な表現を作る場合の深さ制限。デフォルトは 6 です。</div>
+</div>
+<div class="mb0 line-block">
+<div class="line">つまり reprlib.repr() が返すのはイテラブルオブジェクトの項目数 6 個分までを表示してあとは省略したものということです。</div>
+<div class="line"><br /></div>
+<div class="line">試しに下記を実行してみてください。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">reprlib</span>
+<span class="n">reprlib</span><span class="o">.</span><span class="n">repr</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)))</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">'[0, 1, 2, 3, 4, 5, ...]' となったはずです。</div>
+<div class="line">0 から 99 までのリストの先頭から 6 項目分を表示して、あとは省略されていますね。</div>
+<div class="line"><br /></div>
+<div class="line">さて、この問題をさらに訳が分からなくしている元凶は間違いなく set でしょう。</div>
+<div class="line">文字列を set に渡すと list と同様に、一文字ごとにばらしたイテラブルオブジェクトが作成されます。</div>
+<div class="line">そして set は重複する項目を除外し、順序を保証しないという性質があります。</div>
+<div class="line"><br /></div>
+<div class="line">何を言っているのかわからないかもしれませんが下記のコードを試してみてください。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s2">&quot;jobcrown&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">{'b', 'c', 'j', 'w', 'n', 'o', 'r'}となりました。(順番は必ずしもこの通りになるとは限りません。)</div>
+<div class="line">重複する項目 (この例ではo) が一つ除外され、順番もばらばらになりました。</div>
+<div class="line">このばらばらになった順番はランダムではなく、内部的なロジックによってこうなってしまうそうです。</div>
+<div class="line"><br /></div>
+<div class="line">この問題を解くカギは、ばらばらになった文字の並びではなく表示されている項目数に注目するということです。</div>
+<div class="line">選択肢の中で表示されている項目数が 6 個なのは一つだけですね。</div>
+<div class="line"><br /></div>
+<div class="line">とてもナンセンスな問題です。</div>
+</div>
+</section>
+<section id="id11">
+<h3><span class="section-number">6.5.2. </span>解説2.<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="quotation line-block">
+<div class="line">以下のプログラムをインタープリタにて実行した際の出力結果を選びなさい。</div>
+<div class="line"><br /></div>
+<div class="line">[(x, y) for x in [0,1,2] for y in [1,2,3] if x != y]</div>
+<div class="line"><br /></div>
+<div class="line">・[(0, 1), (0, 2), (0, 3), (1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3)]</div>
+<div class="line">・[(0, 1), (1, 1), (2, 1), (0, 2), (1, 2), (2, 2), (0, 3), (1, 3), (2, 3)]</div>
+<div class="line">・[(0, 1), (2, 1), (0, 2), (1, 2), (0, 3), (1, 3), (2, 3)]</div>
+<div class="line">・[(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 1), (2, 3)]</div>
+</div>
+<div class="mb0 line-block">
+<div class="line">これはリスト内包表記の問題です。</div>
+<div class="line">内包表記は少し難しいと思いますが、慣れると結構便利なのでこの機会にぜひ覚えてみてください。</div>
+<div class="line"><br /></div>
+<div class="line">基本的なリスト内包表記はこのように記述します。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">項目</span> <span class="k">for</span> <span class="n">変数</span> <span class="ow">in</span> <span class="n">イテラブルオブジェクト</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">イテラブルオブジェクトのデータを一つずつ変数に格納して、リストの項目として列挙したリストが作成されます。</div>
+<div class="line">この時点で何言ってんだという感じですが、試しに下記を実行してみてください。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="s2">&quot;jobcrown&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">['j', 'o', 'b', 'c', 'r', 'o', 'w', 'n'] こうなりますね。</div>
+<div class="line">list(&quot;jobcrown&quot;) でいいんじゃないかって思いました？まったくその通りです。</div>
+<div class="line"><br /></div>
+<div class="line">では、こうしてみてください。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="s2">&quot;jobcrown&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">['J', 'O', 'B', 'C', 'R', 'O', 'W', 'N'] こうなりましたね。</div>
+<div class="line"><br /></div>
+<div class="line">さらにこうしてみましょう。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">li</span> <span class="o">=</span> <span class="p">[(</span><span class="n">c</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="s2">&quot;jobcrown&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">なんとなくわかりましたか？</div>
+<div class="line">つまり項目の部分でいろいろできるということです。</div>
+<div class="line"><br /></div>
+<div class="line">リスト内包表記では条件文も使用できます。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">項目</span> <span class="k">for</span> <span class="n">変数</span> <span class="ow">in</span> <span class="n">イテラブルオブジェクト</span> <span class="k">if</span> <span class="n">条件文</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">else も使えますが書き方が少し変わります。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">項目</span> <span class="k">if</span> <span class="n">条件文</span> <span class="k">else</span> <span class="n">elseの場合の項目</span> <span class="k">for</span> <span class="n">変数</span> <span class="ow">in</span> <span class="n">イテラブルオブジェクト</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">こんな風に使います。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">li1</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="s2">&quot;jobcrown&quot;</span> <span class="k">if</span> <span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">&gt;=</span> <span class="mi">100</span><span class="p">]</span>
+<span class="n">li2</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">if</span> <span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">&gt;=</span> <span class="mi">100</span> <span class="k">else</span> <span class="s2">&quot;*&quot;</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="s2">&quot;jobcrown&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">li1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">li2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">上記では li1 は jobcrown という文字列のうち Unicode のコードポイントが 100 以上の文字だけを列挙したリストで、li2 は Unicode のコードポイントが 100 より小さいものを * にしたものを列挙したリストになります。</div>
+<div class="line"><br /></div>
+<div class="line">ここまでくれば内包表記はマスターしたも同然です。</div>
+<div class="line">問題文に戻ってみましょう。</div>
+<div class="line">for が二つありますね。</div>
+<div class="line">これは for 文で入れ子を作った時と同様の動作をします。</div>
+<div class="line">つまり、内包表記において右側の for は左側の for の入れ子になっているというイメージです。</div>
+<div class="line"><br /></div>
+<div class="line">この問題を通常の for 文、if 文で表現するとこんな感じになります。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">li</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">y</span><span class="p">:</span>
+            <span class="n">li</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="id12">
+<h3><span class="section-number">6.5.3. </span>解説3.<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="quotation line-block">
+<div class="line">問題文のプログラムを実行した場合の、出力結果を選びなさい。</div>
+<div class="line"><br /></div>
+<div class="line">print(&quot;出力結果:&quot;)</div>
+<div class="line">try:</div>
+<div class="line-block">
+<div class="line">raise Exception(&quot;開始前&quot;,&quot;Exception発生&quot;)</div>
+<div class="line">print(&quot;開始&quot;)</div>
+</div>
+<div class="line">except IOError as msg:</div>
+<div class="line-block">
+<div class="line">print(&quot;IOError発生:&quot;,msg.args[0])</div>
+</div>
+<div class="line">except Exception as msg:</div>
+<div class="line-block">
+<div class="line">print(&quot;予期せぬ問題発生:&quot;,msg.args[1])</div>
+</div>
+<div class="line">else:</div>
+<div class="line-block">
+<div class="line">print(&quot;Else表示&quot;)</div>
+<div class="line"><br /></div>
+</div>
+<div class="line">・出力結果:予期せぬ問題発生:Exception発生</div>
+<div class="line">・出力結果:予期せぬ問題発生:開始前</div>
+<div class="line">・出力結果:IOError発生:開始前&quot;</div>
+<div class="line">・出力結果:予期せぬ問題発生:開始前 Exception発生 Else表示</div>
+</div>
+<div class="mb0 line-block">
+<div class="line">この問題のポイントは try 構文と例外処理です。</div>
+<div class="line"><br /></div>
+<div class="line">try 構文はエラー(例外)が発生した場合と発生しない場合で処理を分岐させることができるものです。</div>
+<div class="line">try 構文には以下のような節があります。</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>try 節</p></td>
+<td><p>実行したい処理を記述します</p></td>
+</tr>
+<tr class="row-even"><td><p>except 節</p></td>
+<td><p>try 節で例外が発生した場合の処理。例外クラスを指定するとそれに応じた例外が発生したときのみ処理を行う</p></td>
+</tr>
+<tr class="row-odd"><td><p>else 節</p></td>
+<td><p>try 節で例外が発生しない場合の処理</p></td>
+</tr>
+<tr class="row-even"><td><p>finally 節</p></td>
+<td><p>上記すべての処理が終了したら実行される処理</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line">通常、処理中に何らかの例外が発生した場合、そこで処理を中断してエラーメッセージが表示されますが、try 構文を使用すれば例外が発生した場合でも状況に応じて処理を続行できるプログラムが作れます。</div>
+<div class="line"><br /></div>
+<div class="line">次に例外クラスについて解説します。</div>
+<div class="line">例外にも様々な種類があります。</div>
+<div class="line">よく見るもは SyntaxError や TypeError などでしょうか。</div>
+<div class="line">これらは <strong>組込み例外</strong> といわれる例外クラスです。</div>
+<div class="line"><a class="reference external" href="https://docs.python.org/ja/3/library/exceptions.html">https://docs.python.org/ja/3/library/exceptions.html</a></div>
+<div class="line"><br /></div>
+<div class="line">クラスと名の付く通り、Python では例外もオブジェクトで定義されます。</div>
+<div class="line">組込み例外には args というアトリビュートがあり、エラーメッセージなどを格納します。</div>
+<div class="line"><br /></div>
+<div class="line">最後に raise 文について。</div>
+<div class="line">raise 文は任意の例外を発生させることができます。</div>
+<div class="line"><br /></div>
+<div class="line">以上を踏まえると、問題文の3行目で例外が発生し 7 行目の except に進み、8 行目を実行して処理を終了しているのがわかるでしょうか。</div>
+</div>
+</section>
+<section id="id13">
+<h3><span class="section-number">6.5.4. </span>解説4.<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="quotation line-block">
+<div class="line">以下のプログラムを実行した際の出力結果を選びなさい。</div>
+<div class="line"><br /></div>
+<div class="line">d = 'divenintoncodet'</div>
+<div class="line"><br /></div>
+<div class="line">print(len(d))</div>
+<div class="line"><br /></div>
+<div class="line">・15</div>
+<div class="line">・18</div>
+<div class="line">・12</div>
+<div class="line">・20</div>
+</div>
+<div class="line-block">
+<div class="line">この問題のポイントはエスケープ文字です。</div>
+<div class="line">エスケープ文字とは、いわゆる制御文字等の特殊な文字のことを言います。</div>
+<div class="line">頭に(バックスラッシュ)をつけた文字列がエスケープ文字として扱われます。</div>
+<div class="line"><br /></div>
+<div class="line">下記はよく使うエスケープ文字です。</div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 86%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>n</p></td>
+<td><p>改行</p></td>
+</tr>
+<tr class="row-even"><td><p>r</p></td>
+<td><p>リターン</p></td>
+</tr>
+<tr class="row-odd"><td><p>t</p></td>
+<td><p>タブ</p></td>
+</tr>
+<tr class="row-even"><td><p>\</p></td>
+<td><p>バックスラッシュ</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line">エスケープ文字は 1 文字としてカウントされます。</div>
+</div>
+</section>
+<section id="id14">
+<h3><span class="section-number">6.5.5. </span>解説.5<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="quotation line-block">
+<div class="line">以下のプログラムを実行した際の出力結果を選びなさい。</div>
+<div class="line"><br /></div>
+<div class="line">import json</div>
+<div class="line">x = {'name':'yamada','data':[2,3,4]}</div>
+<div class="line">print(json.dumps(x))</div>
+<div class="line"><br /></div>
+<div class="line">・{&quot;name&quot;:yamada, &quot;data&quot;: [2, 3, 4]}</div>
+<div class="line">・{&quot;name&quot;: &quot;yamada&quot;, &quot;data&quot;: [2, 3, 4]}</div>
+<div class="line">・{&quot;name&quot;: &quot;yamada&quot;, &quot;data&quot;: [&quot;2&quot;, &quot;3&quot;, &quot;4&quot;]}</div>
+<div class="line">・{&quot;name&quot;: &quot;yamada&quot;, &quot;data&quot;: &quot;[2, 3, 4]&quot;}</div>
+</div>
+<div class="line-block">
+<div class="line">json とは JavaScript を元に作られたファイル形式で、Python だけでなく C や Java 等様々な言語で使用できるデータ交換用フォーマットです。</div>
+<div class="line">json で使用できる値は下記の通りです。</div>
+<div class="line"><br /></div>
+<div class="line">* ダブルクォーテーション(&quot;)囲まれた文字列</div>
+<div class="line">* 数値</div>
+<div class="line">* true</div>
+<div class="line">* false</div>
+<div class="line">* none</div>
+<div class="line">* オブジェクト</div>
+<div class="line">* 配列</div>
+<div class="line"><br /></div>
+<div class="line">json でいうオブジェクトは Python でいうところのディクショナリ、配列はリストに相当します。</div>
+</div>
+</section>
+<section id="id15">
+<h3><span class="section-number">6.5.6. </span>解説.6<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="quotation line-block">
+<div class="line">Python におけるタブ補完について正しいものを選択肢から選びなさい。</div>
+<div class="line"><br /></div>
+<div class="line">・変数とモジュール名の補完はPCの起動時に自動で有効になっており、[Tab]キーで補完機能が呼び出せる。</div>
+<div class="line">・変数とモジュール名の補完はPCの起動時に自動で有効になっており、[Tab]+[ctrl]キーで補完機能が呼び出せる。</div>
+<div class="line">・変数とモジュール名の補完はインタープリタの起動時に自動で有効になっており、[Tab]キーで補完機能が呼び出せる。</div>
+<div class="line">・変数とモジュール名の補完はインタープリタの起動時に自動で有効になっており、[Tab]+[ctrl]キーで補完機能が呼び出せる。</div>
+</div>
+<div class="line-block">
+<div class="line">私の環境(標準インタプリタ)では Tab 補完ができないのですが、この問題は標準インタプリタについて言及しているのでしょうか・・・。</div>
+<div class="line">IPython というインタプリタなら間違いなく Tab 補完が使用できます。</div>
+<div class="line">この手の Tab 補完機能は通常、インタプリタ起動時に有効になります。</div>
+<div class="line"><br /></div>
+<div class="line">ちなみに IPython は pip install ipython でインストールでき、コマンドプロンプト等から ipython で実行できます。</div>
+</div>
+</section>
+<section id="id16">
+<h3><span class="section-number">6.5.7. </span>解説.7<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="quotation line-block">
+<div class="line">アクティベート状態から抜けるコマンドを選択肢から選びなさい。</div>
+<div class="line"><br /></div>
+<div class="line">・exit</div>
+<div class="line">・deactivate</div>
+<div class="line">・deactivate()</div>
+<div class="line">・exit()</div>
+</div>
+<div class="line-block">
+<div class="line">アクティベート状態とは何かというと、仮想環境を実行している状態のことをいいます。</div>
+<div class="line">アクティベート状態の仮想環境を終了するコマンドは deactivate です。</div>
+<div class="line"><br /></div>
+<div class="line">豆知識問題ですね。</div>
+</div>
+</section>
+<section id="id17">
+<h3><span class="section-number">6.5.8. </span>解説.8<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="quotation line-block">
+<div class="line">以下のプログラムを実行した際の出力結果として正しいものを選択しなさい。</div>
+<div class="line"><br /></div>
+<div class="line">i = 10</div>
+<div class="line">def num(arg=i):</div>
+<div class="line-block">
+<div class="line">print(arg)</div>
+</div>
+<div class="line">i = 7</div>
+<div class="line">num()</div>
+<div class="line"><br /></div>
+<div class="line">・7</div>
+<div class="line">・SyntaxErrorとなる。</div>
+<div class="line">・17</div>
+<div class="line">・10</div>
+</div>
+<div class="mb0 line-block">
+<div class="line">この問題のポイントは変数のスコープです。</div>
+<div class="line">変数を参照するときは、その直前で宣言された変数を参照します。</div>
+<div class="line">例えば</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">としたとき、3 行目の print 文に指定した変数 a は、その直前で宣言した a=2 を参照します。</div>
+<div class="line">これは関数の中でも同様なのですが、関数内に対象の変数がない場合コード上でその関数が宣言されている以前に宣言されている変数を参照します。</div>
+<div class="line"><br /></div>
+<div class="line">ここで問題文に戻ると、関数 num の引数が arg=i となっています。</div>
+<div class="line">これは引数デフォルト値を変数 i として、関数呼び出し時に引数を指定しないとこの値を使用するということを意味しています。</div>
+<div class="line">そして、この行の直前で変数 i を宣言している個所は i=10 のためこの値が参照されます。</div>
+<div class="line"><br /></div>
+<div class="line">ちなみに関数呼び出し時に num(i) とした場合は、その直前の i=7 が関数に渡ります。</div>
+</div>
+</section>
+<section id="id18">
+<h3><span class="section-number">6.5.9. </span>解説.9<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="quotation line-block">
+<div class="line">プログラムを実行し、下記の実行結果を得たい。</div>
+<div class="line"><br /></div>
+<div class="line">2017-09-11</div>
+<div class="line"><br /></div>
+<div class="line">下記のプログラムの(A)及び(B)に記述すべきコードの組み合わせを選択肢から選びなさい。</div>
+<div class="line"><br /></div>
+<div class="line">from (A) import (B)</div>
+<div class="line">now = date.today()</div>
+<div class="line">print(now)</div>
+<div class="line"><br /></div>
+<div class="line">・ (A)datetime (B)date</div>
+<div class="line">・ (A)date (B)date</div>
+<div class="line">・ (A)date (B)datetime</div>
+<div class="line">・ (A)datetime (B)datetime</div>
+</div>
+<div class="line-block">
+<div class="line">from A import Bで、A というモジュールの B というオブジェクトをインポートできます。</div>
+<div class="line">日付や時間を扱うモジュールは datetime で、そのうち時間を扱うオブジェクトは date です。</div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="id19">
+<h2><span class="section-number">6.6. </span>受験までの流れと注意点<a class="headerlink" href="#id19" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="line-block">
+<div class="line">受験までの流れ</div>
+<div class="line">Python 3 エンジニア認定基礎試験は全国のオデッセイコミュニケーションズ CBT テストセンターで受験できます。</div>
+<div class="line"><br /></div>
+<div class="line">下記参照</div>
+<div class="line"><a class="reference external" href="https://cbt.odyssey-com.co.jp/pythonic-exam.html#flow">https://cbt.odyssey-com.co.jp/pythonic-exam.html#flow</a></div>
+<div class="line"><br /></div>
+<div class="line">まず試験会場を選択し、試験日程を選びます。</div>
+<div class="line">試験日程は会場によって違うので希望する会場の日程で都合がつかない場合は別の会場を選びましょう。</div>
+<div class="line">申込みは選択した会場に直接申込む必要があります。</div>
+<div class="line"><br /></div>
+<div class="line">次に Odyssey ID というものを登録する必要があります。</div>
+<div class="line">また、ここで登録したIDとパスワードは試験の際に必要になりますので忘れないようにしましょう。</div>
+<div class="line"><br /></div>
+<div class="line">試験は会場の PC から受験する方式で、選択問題が 40 問出題されます。</div>
+<div class="line">試験が終了するとその場で結果が表示され、7 割以上正答で合格になります。</div>
+<div class="line">合格した場合、合格証書は後日郵送されます。</div>
+</div>
+<section id="id20">
+<h3><span class="section-number">6.6.1. </span>試験当日に必要なものについて<a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="line-block">
+<div class="line">* Odyssey IDとパスワード</div>
+<div class="line">* 受験票</div>
+<div class="line">* 身分証明書</div>
+<div class="line"><br /></div>
+<div class="line">大体どんな資格試験でも受験票と身分証明書は必須ですが、</div>
+<div class="line">前述のとおりこの試験では Odyssey ID とパスワードが必要になります。</div>
+<div class="line"><br /></div>
+<div class="line">受験票については会場によって発行されないところもあるようなので、会場ごとに確認する必要があります。</div>
+<div class="line">私が受験したときは、申込時に表示された受験票画面を印字またはスマホ等の画面に表示して会場で提示する方式でした。</div>
+</div>
+</section>
+<section id="id21">
+<h3><span class="section-number">6.6.2. </span>資格報奨金申請について<a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="mb0 line-block">
+<div class="line">試験に合格した場合、申請すれば受験料 + 資格報奨金がもらえます。</div>
+<div class="line">申請には以下のものが必要になります。</div>
+<div class="line"><br /></div>
+<div class="line">* 申請書</div>
+<div class="line">* 合格証書のコピー</div>
+<div class="line">* 受験料の領収書</div>
+<div class="line"><br /></div>
+<div class="line">申請書のフォーマットは backlog にありますので各自ダウンロードしてください。</div>
+<div class="line"><br /></div>
+<div class="line">合格証書は前述のとおり、後日郵送されます。</div>
+<div class="line">試験終了後、試験結果を印字した紙を渡されます(会場によって異なるかもしれません)が、これは合格証書ではありません。</div>
+<div class="line"><br /></div>
+<div class="line">また、受験料の領収書について受験料をクレジットカード払いで支払った場合、会場によっては領収書を発行してくれません。</div>
+<div class="line">その場合、クレジットカードの明細が受験料の領収書代わりになりますので別途各自で用意する必要があります。</div>
+<div class="line">現金払い等の場合でも会場によっては申請しないと受験料の領収書を発行してくれないようなので、会場ごとに確認する必要があります。</div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="id22">
+<h2><span class="section-number">6.7. </span>最後に<a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="line-block">
+<div class="line">模擬試験で合格点を取れるようになればほぼ確実に合格できるはずです。</div>
+<div class="line">ある程度自信がついてきたらぜひ本試験に挑戦してみてください。</div>
+<div class="line"><br /></div>
+<div class="line">また、合格したら私(津山)にご一報いただけるとありがたいです。</div>
+<div class="line"><br /></div>
+<div class="line">不明点等ありましたら随時質問ください。</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="class.html" class="btn btn-neutral float-left" title="5. クラス" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Taro Tsuyama.
+      <span class="lastupdated">最終更新: 5月 09, 2022
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
