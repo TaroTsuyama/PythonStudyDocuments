@@ -82,6 +82,7 @@ html_css_files = ['style.css']
 
 html_js_files = [
     'link_control.js',
+    'sidebar_util.js',
 ]
 
 

@@ -8,6 +8,14 @@ h3 {
   margin-bottom: 10px !important;
 }
 
+.toctree-l3.current>a, .toctree-l4.current>a {
+  background: #aaa !important;
+}
+
+.toctree-l4>a {
+  background: #ddd !important;
+}
+
 .rst-content .code-block-caption {
   padding: 0 !important;
   text-align: left;

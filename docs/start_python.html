@@ -18,6 +18,7 @@
         <script src="_static/doctools.js"></script>
         <script src="_static/translations.js"></script>
         <script src="_static/link_control.js"></script>
+        <script src="_static/sidebar_util.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
@@ -44,34 +45,53 @@
 <li class="toctree-l1 current"><a class="reference internal" href="hiyoko_index.html">ひよこコース</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">1. Python を始めよう</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">1.1. Python をインストールしよう</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">1.2. コマンドプロンプト(またはターミナル)の使い方</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">1.2. コマンドプロンプト (またはターミナル) の使い方</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#windows">1.2.1. Windows の場合</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#id3">1.3. 開発環境の選び方</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#hellowrold">1.4. HelloWrold</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">1.5. 変数</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">1.6. データ型</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id6">1.6.1. 演習問題</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">1.4. Python でプログラムを実行してみよう</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">1.4.1. コメント文</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">1.7. 演算子</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id8">1.8. 制御構文</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id9">1.9. 演習問題</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id10">1.9.1. 演習1.</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id11">1.9.2. 演習2.</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id12">1.9.3. 演習3.</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id13">1.9.4. 演習4.</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id14">1.9.5. 演習5.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">1.5. 変数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">1.6. データ型</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">1.6.1. 各データ型の定義方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">1.6.2. データ型の変換</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">1.6.3. 演習問題</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">1.7. 演算子</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id12">1.7.1. 代数演算子</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">1.7.2. 代入演算子</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">1.7.3. 比較演算子</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">1.7.4. 文字列演算子</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">1.8. 制御構文</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#if">1.8.1. if 文</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#for">1.8.2. for 文</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#while">1.8.3. while 文</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#break">1.8.4. break</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#continue">1.8.5. continue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pass">1.8.6. pass</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">1.9. 演習問題</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id18">1.9.1. 演習1.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id19">1.9.2. 演習2.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id20">1.9.3. 演習3.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id21">1.9.4. 演習4.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id22">1.9.5. 演習5.</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="iterable.html">2. イテラブルオブジェクト</a></li>
 <li class="toctree-l2"><a class="reference internal" href="function.html">3. 関数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="library.html">4. ライブラリ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="library.html">4. ライブラリ・モジュール</a></li>
 <li class="toctree-l2"><a class="reference internal" href="class.html">5. クラス</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python_exam.html">6. Python3エンジニア認定基礎試験</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_exam.html">6. Python3 エンジニア認定基礎試験</a></li>
 </ul>
 </li>
 </ul>
@@ -104,7 +124,7 @@
 <h1><span class="section-number">1. </span>Python を始めよう<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク"></a></h1>
 <section id="id1">
 <h2><span class="section-number">1.1. </span>Python をインストールしよう<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク"></a></h2>
-<p>Python はインタプリタ言語というタイプのプログラミング言語で、テキスト形式のソースファイルを Python 実行用の本体プログラムに読込ませることで処理を実行できます。</p>
+<p>Python はインタプリタ型言語というタイプのプログラミング言語で、テキスト形式のスクリプトファイルを Python 実行用の本体プログラムに読込ませることで処理を実行できます。</p>
 <img alt="_images/image004.png" src="_images/image004.png" />
 <div class="line-block">
 <div class="line">Python はバージョン 2 系と 3 系があり、一部文法が異なるなど完全な互換性はありません。</div>
@@ -127,9 +147,9 @@
 </div>
 </section>
 <section id="id2">
-<h2><span class="section-number">1.2. </span>コマンドプロンプト(またはターミナル)の使い方<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク"></a></h2>
+<h2><span class="section-number">1.2. </span>コマンドプロンプト (またはターミナル) の使い方<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク"></a></h2>
 <p>Python の実行はいくつか方法があるのですが、コマンドプロンプトやターミナルから実行するのが基本です。</p>
-<p>コマンドプロンプト等を用いて Python の本体プログラムにソースファイルを渡すことで処理が実行されます。</p>
+<p>コマンドプロンプト等を用いて Python の本体プログラムにスクリプトファイルを渡すことで処理が実行されます。</p>
 <section id="windows">
 <h3><span class="section-number">1.2.1. </span>Windows の場合<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク"></a></h3>
 <div class="line-block">
@@ -208,7 +228,7 @@ C:\Users\(ユーザ名)&gt;  ←参照しているディレクトリが切り替
 </div>
 <div class="line-block">
 <div class="line">上記のように、ディレクトリの移動も作成も一つずつだけではなく複数指定することもできます。</div>
-<div class="line">ここで作成したディレクトリに Python のソースファイルを作成して演習を行います。</div>
+<div class="line">ここで作成したディレクトリに Python のスクリプトファイルを作成して演習を行います。</div>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -220,11 +240,11 @@ C:\Users\(ユーザ名)&gt;  ←参照しているディレクトリが切り替
 <section id="id3">
 <h2><span class="section-number">1.3. </span>開発環境の選び方<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク"></a></h2>
 <div class="line-block">
-<div class="line">Python のソースコードは拡張子が <strong>.py</strong> のテキストファイルです。</div>
+<div class="line">Python のスクリプトファイルは拡張子が <strong>.py</strong> のテキストファイルです。</div>
 <div class="line">メモ帳でも作成できますが、より便利な <strong>テキストエディタ</strong> や <strong>統合開発環境</strong> 等を使ってみましょう。</div>
 </div>
 <div class="line-block">
-<div class="line">Microsoft 製のコードエディタ Visual Studio Code(VSCode) がおすすめです。</div>
+<div class="line">Microsoft 製のコードエディタ Visual Studio Code (VSCode) がおすすめです。</div>
 </div>
 <p><a class="reference external" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></p>
 <div class="mb0 line-block">
@@ -240,15 +260,15 @@ C:\Users\(ユーザ名)&gt;  ←参照しているディレクトリが切り替
 <div class="line"><br /></div>
 </div>
 </section>
-<section id="hellowrold">
-<h2><span class="section-number">1.4. </span>HelloWrold<a class="headerlink" href="#hellowrold" title="このヘッドラインへのパーマリンク"></a></h2>
-<div class="line-block">
-<div class="line">Python の実行はソースコードを読み込む方法の他に、対話モードというものがあります。</div>
-<div class="line">これは主にコードの確認用に使用します。</div>
-<div class="line">まずは、対話モードでプログラミングの基本「HelloWorld」を表示してみましょう。</div>
-</div>
+<section id="id4">
+<h2><span class="section-number">1.4. </span>Python でプログラムを実行してみよう<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク"></a></h2>
 <div class="mb0 line-block">
-<div class="line">対話モードはコマンドプロンプトに python または py と入力すれば実行できます。</div>
+<div class="line">Python の実行は「スクリプトファイルを読み込む方法」と「対話モード」というものがあります。</div>
+<div class="line">対話モードは主にコードの確認用に使用します。</div>
+<div class="line"><br /></div>
+<div class="line">まずは、対話モードでプログラミングの基本「HelloWorld」を表示してみましょう。</div>
+<div class="line"><br /></div>
+<div class="line">対話モードを開始するにはコマンドプロンプトに python または py と入力すれば実行できます。</div>
 <div class="line">Mac の場合は (特に設定していなければ) python3 コマンドで実行できます。</div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">python</span>
@@ -268,33 +288,52 @@ HelloWorld  ← コマンドの結果
 <div class="line">対話モードを終了するには exit() または quit() と入力します。</div>
 </div>
 <div class="mb0 line-block">
-<div class="line">次にソースファイルを作成して実行してみましょう。</div>
+<div class="line">次にスクリプトファイルを作成して実行してみましょう。</div>
 <div class="line">まず、テキストエディタ等で下記を入力して作成した演習用ディレクトリ内に hello_world.py という名前で保存します。</div>
 <div class="line">また、保存する際に文字コードを utf-8 に設定しましょう。 (エディタによって設定方法が異なるので各自使用しているエディタのドキュメント等で確認してください)</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id15">
-<div class="code-block-caption"><span class="caption-text">hello_world.py</span><a class="headerlink" href="#id15" title="このコードへのパーマリンク"></a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;HelloWorld&quot;</span><span class="p">)</span>
+<div class="literal-block-wrapper docutils container" id="id23">
+<div class="code-block-caption"><span class="caption-text">hello_world.py</span><a class="headerlink" href="#id23" title="このコードへのパーマリンク"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;HelloWorld&quot;</span><span class="p">)</span> <span class="c1"># HelloWorld と表示する</span>
 </pre></div>
 </div>
 </div>
 <div class="mb0 line-block">
-<div class="line">CLI 画面から Python の本体プログラムに作成したソースコードを渡します。</div>
-<div class="line">python(またはpython3) の後ろに半角スペース、ソースファイル名と指定すると実行できます。</div>
+<div class="line">CLI 画面から Python の本体プログラムに作成したスクリプトファイルを渡します。</div>
+<div class="line">python(またはpython3) の後ろに半角スペース、スクリプトファイル名と指定すると実行できます。</div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt; python hello_world.py  ← Python に hello_world.py を読み込ませる
 HelloWorld  ← プログラムの結果
 </pre></div>
 </div>
-<p>ソースファイルの指定には tab キー補完が便利なのでぜひ活用しましょう。</p>
+<p>スクリプトファイルの指定には tab キー補完が便利なのでぜひ活用しましょう。</p>
+<section id="id5">
+<h3><span class="section-number">1.4.1. </span>コメント文<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="line-block">
+<div class="line"># を使うと行のそれ以降が <strong>コメント文</strong> になります。</div>
+<div class="line">コメント文はプログラムに影響しないので処理の内容を説明したりするときに便利です。</div>
+<div class="line"><br /></div>
+<div class="line">' (シングルクォート) または &quot; (ダブルクォート) <strong>3 つで囲うと</strong> その範囲がすべてコメントになります。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># コメント</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;jobcrown&quot;</span><span class="p">)</span> <span class="c1"># コメント</span>
+<span class="c1"># print(&quot;python&quot;)</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">print(&quot;jobcrown&quot;)</span>
+<span class="sd">print(&quot;python&quot;)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
 </section>
-<section id="id4">
-<h2><span class="section-number">1.5. </span>変数<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク"></a></h2>
+</section>
+<section id="id6">
+<h2><span class="section-number">1.5. </span>変数<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク"></a></h2>
 <p>変数とは、データの入れ物のことでプログラミングの基本となる概念です。</p>
 <div class="mb0 line-block">
 <div class="line">Python では変数の定義は下記のようにします。</div>
@@ -305,40 +344,42 @@ HelloWorld  ← プログラムの結果
 <div class="mb0 line-block">
 <div class="line">(例)</div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># ← 変数numに数値100を代入しています。</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># ← 変数 num に数値 100 を代入しています。</span>
 </pre></div>
 </div>
 <p>変数名には命名ルールがあります。</p>
 <ul class="simple">
-<li><p>使用できる文字はアルファベット小文字の a から z、大文字の A から Z、数字の 0 から 9、_(アンダースコア)。また、日本語文字(Unicode 文字)も使用できますが推奨されていません。</p></li>
+<li><p>使用できる文字はアルファベット小文字の a から z、大文字の A から Z、数字の 0 から 9、_ (アンダースコア)。また、日本語文字 (Unicode 文字) も使用できますが推奨されていません。</p></li>
 <li><p>数字を先頭に使うことはできない。</p></li>
-<li><p>予約語は使用できない。</p></li>
+<li><p><strong>予約語</strong> は使用できない。</p></li>
 <li><p>予約語以外でも関数等と同名にすると上書きされて正しく機能しなくなるので非推奨。</p></li>
 </ul>
-<div class="line-block">
+<div class="quotation line-block">
 <div class="line">予約語とは</div>
 <div class="line">制御構文などに使用する名前を予約語といいます。</div>
 <div class="line">もし変数名に予約語が使用できてしまうと変数名と予約語の区別がつかなくなり正しい処理ができなくなってしまうので、使用が禁止されています。</div>
-</div>
-<div class="line-block">
+<div class="line"><br /></div>
 <div class="line">Python の予約語は以下の通りです。</div>
-<div class="line">False, None, True, and, as, assert, async, await, break, class, continue, def, del, elif, else, except, finally, for, from, global, if, import, in, is, lambda, nonlocal, not, or, pass, raise, return, try, while, with, yield</div>
+<div class="line-block">
+<div class="line">False, await, else, import, pass, None, break, except, in,</div>
+<div class="line">raise, True, class, finally, is, return, and, continue, for,</div>
+<div class="line">lambda, try, as, def, from, nonlocal, while, assert, del,</div>
+<div class="line">global, not, with, async, elif, if, or, yield</div>
+</div>
 </div>
 <div class="mb0 line-block">
 <div class="line">前節で作成した hello_world.py を修正してよりプログラミングっぽく書いてみましょう。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id16">
-<div class="code-block-caption"><span class="caption-text">hello_world.py</span><a class="headerlink" href="#id16" title="このコードへのパーマリンク"></a></div>
+<div class="literal-block-wrapper docutils container" id="id24">
+<div class="code-block-caption"><span class="caption-text">hello_world.py</span><a class="headerlink" href="#id24" title="このコードへのパーマリンク"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;HelloWorld&quot;</span>  <span class="c1"># 変数 text に文字列 &quot;HelloWorld&quot; を代入</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="line-block">
-<div class="line">print 関数は()の中に指定した文字列を画面に表示する関数です。</div>
+<div class="line">print 関数は () の中に指定した文字列を画面に表示する関数です。</div>
 <div class="line">この例では変数textを指定しているので、その中のデータ文字列 &quot;HelloWorld&quot; を画面に表示します。</div>
-<div class="line">また、# を使うとそれ以降が <strong>コメント文</strong> になります。</div>
-<div class="line">コメント文はプログラムに影響しないので処理の内容を説明したりするときに便利です。</div>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -346,10 +387,14 @@ HelloWorld  ← プログラムの結果
 <div class="line"><br /></div>
 </div>
 </section>
-<section id="id5">
-<h2><span class="section-number">1.6. </span>データ型<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク"></a></h2>
-<p>Python を含めプログラミング言語では、扱うデータによって型があります。
-下記は基本的なデータ型です。</p>
+<section id="id7">
+<h2><span class="section-number">1.6. </span>データ型<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="mb0 line-block">
+<div class="line">Python を含めプログラミング言語では、扱うデータによって <strong>型</strong> が異なります。</div>
+<div class="line">データの種類によって、入れ物が異なるようなイメージです。</div>
+<div class="line"><br /></div>
+<div class="line">下記は基本的なデータ型です。</div>
+</div>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -362,7 +407,7 @@ HelloWorld  ← プログラムの結果
 <td><p>小数点を含まない数値</p></td>
 </tr>
 <tr class="row-even"><td><p>float</p></td>
-<td><p>浮動小数点型</p></td>
+<td><p>浮動小数点数型</p></td>
 <td><p>小数点を含む数値</p></td>
 </tr>
 <tr class="row-odd"><td><p>str</p></td>
@@ -375,7 +420,8 @@ HelloWorld  ← プログラムの結果
 </tr>
 </tbody>
 </table>
-<p>各データ型の定義方法</p>
+<section id="id8">
+<h3><span class="section-number">1.6.1. </span>各データ型の定義方法<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク"></a></h3>
 <div class="mb0 line-block">
 <div class="line">int</div>
 <div class="line">小数点を含まない数値で定義</div>
@@ -400,7 +446,7 @@ HelloWorld  ← プログラムの結果
 </div>
 <div class="mb0 line-block">
 <div class="line">bool</div>
-<div class="line">True または False で定義(先頭のみ大文字、クォートで囲まない)</div>
+<div class="line">True または False で定義 (先頭のみ大文字、クォートで囲まない)</div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bool_data</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
@@ -422,6 +468,9 @@ HelloWorld  ← プログラムの結果
 <span class="go">&lt;class &#39;int&#39;&gt;</span>
 </pre></div>
 </div>
+</section>
+<section id="id9">
+<h3><span class="section-number">1.6.2. </span>データ型の変換<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク"></a></h3>
 <p>各データ型の要件を満たす場合、他のデータ型から変換できます。</p>
 <div class="mb0 line-block">
 <div class="line">int に変換</div>
@@ -466,19 +515,22 @@ HelloWorld  ← プログラムの結果
 <span class="nb">bool</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>  <span class="c1"># False (空白の文字列は False になる)</span>
 </pre></div>
 </div>
-<section id="id6">
-<h3><span class="section-number">1.6.1. </span>演習問題<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク"></a></h3>
-<p>演習用ディレクトリに data_type.py というファイルを作成して、次のようなプログラムを作ってみましょう。</p>
-<ul class="simple">
-<li><p>変数 data に代入した bool 型のデータ True を <strong>文字列の &quot;1&quot;</strong> に変換する。</p></li>
-</ul>
-<div class="literal-block-wrapper docutils container" id="id17">
-<div class="code-block-caption"><span class="caption-text">data_type.py</span><a class="headerlink" href="#id17" title="このコードへのパーマリンク"></a></div>
+</section>
+<section id="id10">
+<h3><span class="section-number">1.6.3. </span>演習問題<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="mb0 line-block">
+<div class="line">演習用ディレクトリに data_type.py というファイルを作成して、次のようなプログラムを作ってみましょう。</div>
+<div class="line"><br /></div>
+<div class="line">(A) 変数 data に代入した bool 型のデータ True を <strong>文字列の &quot;1&quot;</strong> に変換する。</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id25">
+<div class="code-block-caption"><span class="caption-text">data_type.py</span><a class="headerlink" href="#id25" title="このコードへのパーマリンク"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="kc">True</span>
 
-<span class="n">str_data</span> <span class="o">=</span>      <span class="c1"># data を文字列の &quot;1&quot; に変換</span>
+<span class="n">str_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span><span class="p">)</span>   <span class="c1"># data を文字列の &quot;1&quot; に変換</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">str_data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">str_data</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -489,11 +541,12 @@ HelloWorld  ← プログラムの結果
 </div>
 </section>
 </section>
-<section id="id7">
-<h2><span class="section-number">1.7. </span>演算子<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク"></a></h2>
+<section id="id11">
+<h2><span class="section-number">1.7. </span>演算子<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク"></a></h2>
 <p>プログラムはデータ同士の演算によって成り立ちます。</p>
+<section id="id12">
+<h3><span class="section-number">1.7.1. </span>代数演算子<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク"></a></h3>
 <div class="mb0 line-block">
-<div class="line">代数演算子</div>
 <div class="line">四則計算など、数値の計算に使用します。</div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">+</span> <span class="n">B</span>  <span class="c1"># 加算</span>
@@ -505,8 +558,10 @@ HelloWorld  ← プログラムの結果
 <span class="n">A</span> <span class="o">//</span> <span class="n">B</span>  <span class="c1"># 切り捨て除算</span>
 </pre></div>
 </div>
+</section>
+<section id="id13">
+<h3><span class="section-number">1.7.2. </span>代入演算子<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク"></a></h3>
 <div class="mb0 line-block">
-<div class="line">代入演算子</div>
 <div class="line">変数にデータを代入するときに使用します。</div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">B</span>  <span class="c1"># A に B を代入</span>
@@ -519,8 +574,10 @@ HelloWorld  ← プログラムの結果
 <span class="n">A</span> <span class="o">//=</span> <span class="n">B</span>  <span class="c1"># A を B で切り捨て除算して代入</span>
 </pre></div>
 </div>
+</section>
+<section id="id14">
+<h3><span class="section-number">1.7.3. </span>比較演算子<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク"></a></h3>
 <div class="mb0 line-block">
-<div class="line">比較演算子</div>
 <div class="line">データを比較して真なら True、偽なら False になります。</div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">==</span> <span class="n">B</span>  <span class="c1"># A と B が等価なら True</span>
@@ -529,6 +586,7 @@ HelloWorld  ← プログラムの結果
 <span class="n">A</span> <span class="o">&gt;=</span> <span class="n">B</span>  <span class="c1"># A が B 以上なら True</span>
 <span class="n">A</span> <span class="o">&lt;</span> <span class="n">B</span>  <span class="c1"># A が B より小さければ True</span>
 <span class="n">A</span> <span class="o">&lt;=</span> <span class="n">B</span>  <span class="c1"># A が B 以下なら True</span>
+<span class="n">A</span> <span class="ow">in</span> <span class="n">B</span> <span class="c1"># A が B に含まれるなら True</span>
 </pre></div>
 </div>
 <div class="mb0 line-block">
@@ -540,8 +598,10 @@ HelloWorld  ← プログラムの結果
 <span class="ow">not</span> <span class="n">A</span>  <span class="c1"># A が False なら True、True なら False</span>
 </pre></div>
 </div>
+</section>
+<section id="id15">
+<h3><span class="section-number">1.7.4. </span>文字列演算子<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク"></a></h3>
 <div class="mb0 line-block">
-<div class="line">文字列演算子</div>
 <div class="line">文字列の操作に使用します。</div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">+</span> <span class="n">B</span>  <span class="c1"># 文字列 A と文字列 B を結合</span>
@@ -554,10 +614,12 @@ HelloWorld  ← プログラムの結果
 <div class="line"><br /></div>
 </div>
 </section>
-<section id="id8">
-<h2><span class="section-number">1.8. </span>制御構文<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク"></a></h2>
+</section>
+<section id="id16">
+<h2><span class="section-number">1.8. </span>制御構文<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク"></a></h2>
 <div class="mb0 line-block">
-<div class="line">より高度な処理を行うためには制御構文を使います。</div>
+<div class="line">より高度な処理を行うためには <strong>制御構文</strong> を使います。</div>
+<div class="line"><br /></div>
 <div class="line">条件に応じて処理を分岐させたり、同じ処理を繰り返し実行したりすることができます。</div>
 <div class="line">構文の構造は下記のようになっています。</div>
 </div>
@@ -565,8 +627,9 @@ HelloWorld  ← プログラムの結果
     <span class="n">処理1</span>
 </pre></div>
 </div>
-<p>構文の中の処理にはスペースやタブ (推奨はスペース4つ) を使ってインデントを付ける必要があります。</p>
 <div class="mb0 line-block">
+<div class="line">構文の中の処理にはスペースやタブ (推奨はスペース4つ) を使って <strong>インデント</strong> を付ける必要があります。</div>
+<div class="line"><br /></div>
 <div class="line">同じ構文の処理のインデントは揃える必要があります。</div>
 <div class="line">また、構文内に別の構文を入れる (ネスト) こともできます。</div>
 <div class="line">その場合はさらにインデントを付ける必要があります。</div>
@@ -588,12 +651,11 @@ HelloWorld  ← プログラムの結果
 </pre></div>
 </div>
 <p>なんとなくイメージできるでしょうか。</p>
+<section id="if">
+<h3><span class="section-number">1.8.1. </span>if 文<a class="headerlink" href="#if" title="このヘッドラインへのパーマリンク"></a></h3>
 <div class="mb0 line-block">
-<div class="line">if 文</div>
-<div class="line-block">
 <div class="line">条件分岐を行う構文です。</div>
 <div class="line">条件式が True のとき処理を実行します。</div>
-</div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">A</span> <span class="o">==</span> <span class="n">B</span><span class="p">:</span>  <span class="c1"># : (コロン)を忘れないこと</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A is B&quot;</span><span class="p">)</span>  <span class="c1"># 構文内の処理はインデントをつける。</span>
@@ -619,35 +681,35 @@ HelloWorld  ← プログラムの結果
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A is smaller than B&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+</section>
+<section id="for">
+<h3><span class="section-number">1.8.2. </span>for 文<a class="headerlink" href="#for" title="このヘッドラインへのパーマリンク"></a></h3>
 <div class="mb0 line-block">
-<div class="line">for 文</div>
-<div class="line-block">
 <div class="line">特定の回数繰り返し処理を行なう構文です。</div>
 <div class="line">ここでは一番基本的な使い方のみ紹介します。</div>
-</div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ジョブクラウン&quot;</span><span class="p">)</span>  <span class="c1"># 文字列 &quot;ジョブクラウン&quot; を 10 回表示</span>
 </pre></div>
 </div>
 <p>なお、for の後の i は繰り返し回数を格納する変数で、i である必要はありません。</p>
+</section>
+<section id="while">
+<h3><span class="section-number">1.8.3. </span>while 文<a class="headerlink" href="#while" title="このヘッドラインへのパーマリンク"></a></h3>
 <div class="mb0 line-block">
-<div class="line">while 文</div>
-<div class="line-block">
 <div class="line">条件が満たされている間繰り返し処理を行なう構文です。</div>
 <div class="line">while 文では条件式が True のままだと永久に繰り返し処理を行ってしまうので注意しましょう。</div>
-</div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">A</span> <span class="o">&gt;</span> <span class="n">B</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A is larger than B&quot;</span><span class="p">)</span>
     <span class="n">B</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># B に 1 ずつ加算していき A より大きくなったら終了する</span>
 </pre></div>
 </div>
+</section>
+<section id="break">
+<h3><span class="section-number">1.8.4. </span>break<a class="headerlink" href="#break" title="このヘッドラインへのパーマリンク"></a></h3>
 <div class="mb0 line-block">
-<div class="line">break</div>
-<div class="line-block">
 <div class="line">特定の条件のとき構文を抜けたい場合は break を使用します。</div>
-</div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>  <span class="c1"># 変数 i が 5 になると構文を抜ける。</span>
@@ -655,11 +717,11 @@ HelloWorld  ← プログラムの結果
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
 </div>
+</section>
+<section id="continue">
+<h3><span class="section-number">1.8.5. </span>continue<a class="headerlink" href="#continue" title="このヘッドラインへのパーマリンク"></a></h3>
 <div class="mb0 line-block">
-<div class="line">continue</div>
-<div class="line-block">
 <div class="line">特定の条件のときその処理をスキップしたい場合は continue を使用します。</div>
-</div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>  <span class="c1"># 変数 i が 5 のとき処理をスキップ。</span>
@@ -667,12 +729,12 @@ HelloWorld  ← プログラムの結果
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
 </div>
+</section>
+<section id="pass">
+<h3><span class="section-number">1.8.6. </span>pass<a class="headerlink" href="#pass" title="このヘッドラインへのパーマリンク"></a></h3>
 <div class="mb0 line-block">
-<div class="line">pass</div>
-<div class="line-block">
 <div class="line">構文には処理を指定しないとエラーになってしまいますが、場合によっては何もしない処理が必要になることがあります。</div>
 <div class="line">その場合は pass を使用します。</div>
-</div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">A</span> <span class="o">==</span> <span class="n">B</span><span class="p">:</span>
     <span class="k">pass</span>  <span class="c1"># 何もしない</span>
@@ -686,11 +748,12 @@ HelloWorld  ← プログラムの結果
 <div class="line"><br /></div>
 </div>
 </section>
-<section id="id9">
-<h2><span class="section-number">1.9. </span>演習問題<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク"></a></h2>
+</section>
+<section id="id17">
+<h2><span class="section-number">1.9. </span>演習問題<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク"></a></h2>
 <p>各問題ごとに演習用ディレクトリにファイルを作成し、プログラムを作成しましょう。</p>
-<section id="id10">
-<h3><span class="section-number">1.9.1. </span>演習1.<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク"></a></h3>
+<section id="id18">
+<h3><span class="section-number">1.9.1. </span>演習1.<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク"></a></h3>
 <div class="mb0 line-block">
 <div class="line">ファイル名: practice1.py</div>
 <div class="line">input 関数を使用してユーザが画面から入力した文字を表示する。</div>
@@ -708,8 +771,8 @@ Hello と入力されました
 </pre></div>
 </div>
 </section>
-<section id="id11">
-<h3><span class="section-number">1.9.2. </span>演習2.<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク"></a></h3>
+<section id="id19">
+<h3><span class="section-number">1.9.2. </span>演習2.<a class="headerlink" href="#id19" title="このヘッドラインへのパーマリンク"></a></h3>
 <div class="mb0 line-block">
 <div class="line">ファイル名: practice2.py</div>
 <div class="line">ユーザが入力した文字が「Hello」の場合「こんにちは」と返答し、それ以外の場合は「わかりません」と返答する。</div>
@@ -720,8 +783,8 @@ Hello と入力されました
 </pre></div>
 </div>
 </section>
-<section id="id12">
-<h3><span class="section-number">1.9.3. </span>演習3.<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク"></a></h3>
+<section id="id20">
+<h3><span class="section-number">1.9.3. </span>演習3.<a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク"></a></h3>
 <div class="mb0 line-block">
 <div class="line">ファイル名: practice3.py</div>
 <div class="line">ユーザが入力した文字が変数 password に定義した文字列と等しければ「パスワードを認証しました」と表示し、そうでなければ「パスワードが違います」と表示する。</div>
@@ -732,8 +795,8 @@ Hello と入力されました
 </pre></div>
 </div>
 </section>
-<section id="id13">
-<h3><span class="section-number">1.9.4. </span>演習4.<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク"></a></h3>
+<section id="id21">
+<h3><span class="section-number">1.9.4. </span>演習4.<a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク"></a></h3>
 <div class="mb0 line-block">
 <div class="line">ファイル名: practice4.py</div>
 <div class="line">ユーザが入力した文字が変数 password に定義した文字列と等しければ「パスワードを認証しました」</div>
@@ -751,8 +814,8 @@ Hello と入力されました
 </pre></div>
 </div>
 </section>
-<section id="id14">
-<h3><span class="section-number">1.9.5. </span>演習5.<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク"></a></h3>
+<section id="id22">
+<h3><span class="section-number">1.9.5. </span>演習5.<a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク"></a></h3>
 <div class="mb0 line-block">
 <div class="line">ファイル名: practice5.py</div>
 <div class="line">ユーザが入力した文字が数値型に変換可能な場合、int 型に変換した値を変数 value に代入し、変数 value が 1 から 100 の範囲内ならその回数分「JOBCROWN」という文字を表示する。</div>
@@ -802,7 +865,7 @@ JOBCROWN
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, Taro Tsuyama.
-      <span class="lastupdated">最終更新: 5月 08, 2022
+      <span class="lastupdated">最終更新: 5月 13, 2022
       </span></p>
   </div>
 
