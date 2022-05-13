@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Python 勉強会 ドキュメント'
+project = 'Python 研修・勉強会 ドキュメント'
 copyright = '2022, Taro Tsuyama'
 author = 'Taro Tsuyama'
 
@@ -66,7 +66,7 @@ html_static_path = ['_static']
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title = "ジョブクラウン Python 勉強会 学習用資料"
+html_title = "ジョブクラウン Python 研修・勉強会 学習用資料"
 
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,

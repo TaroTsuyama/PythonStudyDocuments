@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2. イテラブルオブジェクト &mdash; ジョブクラウン Python 勉強会 学習用資料</title>
+  <title>2. イテラブルオブジェクト &mdash; ジョブクラウン Python 研修・勉強会 学習用資料</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/style.css" type="text/css" />
@@ -31,7 +31,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Python 勉強会 ドキュメント
+            <a href="index.html" class="icon icon-home"> Python 研修・勉強会 ドキュメント
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -91,7 +91,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Python 勉強会 ドキュメント</a>
+          <a href="index.html">Python 研修・勉強会 ドキュメント</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -195,11 +195,6 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="line-block">
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-</div>
 </section>
 </section>
 <section id="id4">
@@ -223,11 +218,6 @@
 </pre></div>
 </div>
 <p>様々なデータをひとつのオブジェクトに格納して処理できるというのがイテラブルオブジェクトの強みの一つです。</p>
-<div class="line-block">
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-</div>
 </section>
 <section id="id5">
 <h2><span class="section-number">2.3. </span>スライス<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク"></a></h2>
@@ -320,11 +310,6 @@
 </pre></div>
 </div>
 <p>整数の数値でないものを指定してもエラーとなります。</p>
-<div class="line-block">
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-</div>
 </section>
 <section id="list">
 <h2><span class="section-number">2.4. </span>リスト (list)<a class="headerlink" href="#list" title="このヘッドラインへのパーマリンク"></a></h2>
@@ -388,11 +373,6 @@
 <div class="line">pop メソッドは、リストに項目がないときや要素数よりも大きい数値を指定するとエラーとなります。</div>
 <div class="line">remove メソッドは、リストに対象のデータが存在しない場合エラーとなります。</div>
 </div>
-<div class="line-block">
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-</div>
 </section>
 </section>
 <section id="tuple">
@@ -415,11 +395,6 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tuple2</span> <span class="o">=</span> <span class="mi">123</span><span class="p">,</span> <span class="mi">456</span><span class="p">,</span> <span class="mi">789</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">tuple2</span><span class="p">))</span> <span class="c1"># &lt;class &#39;tuple&#39;&gt;</span>
 </pre></div>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-<div class="line"><br /></div>
 </div>
 </section>
 <section id="set">
@@ -516,11 +491,6 @@ discard は remove と同様のメソッドですが、対象のデータが存�
 <div class="line">ただし、これにはひとつ注意点があります。</div>
 <div class="line">セットの性質上、項目の順番が入れ替わる可能性があるので、項目の順番を維持する必要がある場合は他の方法を検討しなければなりません。</div>
 </div>
-<div class="line-block">
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-</div>
 </section>
 </section>
 <section id="dict">
@@ -555,11 +525,6 @@ discard は remove と同様のメソッドですが、対象のデータが存�
 <span class="n">dict1</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="s2">&quot;データ2&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
 </pre></div>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-<div class="line"><br /></div>
 </div>
 </section>
 <section id="for">
@@ -625,11 +590,6 @@ discard は remove と同様のメソッドですが、対象のデータが存�
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="line-block">
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-</div>
 </section>
 <section id="id12">
 <h2><span class="section-number">2.9. </span>演習問題<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク"></a></h2>
@@ -680,11 +640,6 @@ discard は remove と同様のメソッドですが、対象のデータが存�
 </pre></div>
 </div>
 <p>データを追加した name_list のうち、company が jobcrown のデータのみ name を表示するプログラムを作ってみよう。</p>
-<div class="line-block">
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-</div>
 </section>
 </section>
 <section id="id18">
@@ -754,7 +709,7 @@ discard は remove と同様のメソッドですが、対象のデータが存�
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, Taro Tsuyama.
-      <span class="lastupdated">最終更新: 5月 12, 2022
+      <span class="lastupdated">最終更新: 5月 13, 2022
       </span></p>
   </div>
 
