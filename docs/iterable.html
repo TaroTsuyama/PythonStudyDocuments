@@ -65,16 +65,18 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#dict">2.7. ディクショナリ(dict)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#for">2.8. for文をもう少し深く理解する</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id12">2.9. 演習問題</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id13">2.9.1. 演習1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id14">2.9.2. 演習2</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id15">2.9.3. 演習3</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id16">2.9.4. 演習4</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id17">2.9.5. 演習5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">2.8. アンパック代入</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for">2.9. for文をもう少し深く理解する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">2.10. 演習問題</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id14">2.10.1. 演習1.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">2.10.2. 演習2.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">2.10.3. 演習3.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">2.10.4. 演習4.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">2.10.5. 演習5.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id19">2.10.6. 演習6.</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id18">2.10. おまけ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">2.11. おまけ</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="function.html">3. 関数</a></li>
@@ -527,8 +529,46 @@ discard は remove と同様のメソッドですが、対象のデータが存�
 </pre></div>
 </div>
 </section>
+<section id="id12">
+<h2><span class="section-number">2.8. </span>アンパック代入<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="mb0 line-block">
+<div class="line">イテラブルオブジェクトの各要素を別々の変数に代入したい場合、アンパック代入という方法を使用します。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">123</span><span class="p">,</span> <span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)]</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">data</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">要素数と、変数の数が一致していないとエラーになります。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">123</span><span class="p">,</span> <span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)]</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">data</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">変数の前に * を付けると、list として代入されます。</div>
+<div class="line">list にできる変数は一つだけです。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">123</span><span class="p">,</span> <span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)]</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="n">data</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">この場合、要素数が変数の数より多くてもエラーとはなりません。</div>
+</div>
+</section>
 <section id="for">
-<h2><span class="section-number">2.8. </span>for文をもう少し深く理解する<a class="headerlink" href="#for" title="このヘッドラインへのパーマリンク"></a></h2>
+<h2><span class="section-number">2.9. </span>for文をもう少し深く理解する<a class="headerlink" href="#for" title="このヘッドラインへのパーマリンク"></a></h2>
 <div class="mb0 line-block">
 <div class="line">python の for 文はイテラブルオブジェクトの各要素に対して処理を行なう構文です。</div>
 <div class="line">他の言語で言うところの <strong>foreach</strong> と同等です。</div>
@@ -591,59 +631,119 @@ discard は remove と同様のメソッドですが、対象のデータが存�
 </pre></div>
 </div>
 </section>
-<section id="id12">
-<h2><span class="section-number">2.9. </span>演習問題<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク"></a></h2>
+<section id="id13">
+<h2><span class="section-number">2.10. </span>演習問題<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク"></a></h2>
 <div class="line-block">
 <div class="line">演習用ディレクトリに lesson2 というディレクトリを作成し、</div>
 <div class="line">各問題ごとに演習用のファイルを作成して、プログラムを作成しましょう。</div>
 </div>
-<section id="id13">
-<h3><span class="section-number">2.9.1. </span>演習1<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク"></a></h3>
+<section id="id14">
+<h3><span class="section-number">2.10.1. </span>演習1.<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク"></a></h3>
 <div class="mb0 line-block">
 <div class="line">ファイル名: practice1.py</div>
 <div class="line">1 から 100 までの間にあるすべての整数を含んだ list 型の変数 num_list を作成しよう。</div>
 </div>
 </section>
-<section id="id14">
-<h3><span class="section-number">2.9.2. </span>演習2<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク"></a></h3>
+<section id="id15">
+<h3><span class="section-number">2.10.2. </span>演習2.<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク"></a></h3>
 <div class="mb0 line-block">
 <div class="line">ファイル名: practice2.py</div>
 <div class="line">1 から 100 までの間にあるすべての偶数を含んだ list 型の変数 even_list を作成しよう。</div>
 </div>
 </section>
-<section id="id15">
-<h3><span class="section-number">2.9.3. </span>演習3<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク"></a></h3>
+<section id="id16">
+<h3><span class="section-number">2.10.3. </span>演習3.<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク"></a></h3>
 <div class="mb0 line-block">
 <div class="line">ファイル名: practice3.py</div>
 <div class="line">1 から 100 までの間にあるすべての奇数を含んだ list 型の変数 odd_list を range 関数を使わずに作成しよう。</div>
 </div>
 </section>
-<section id="id16">
-<h3><span class="section-number">2.9.4. </span>演習4<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク"></a></h3>
+<section id="id17">
+<h3><span class="section-number">2.10.4. </span>演習4.<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク"></a></h3>
 <div class="mb0 line-block">
 <div class="line">ファイル名: practice4.py</div>
 <div class="line">1 から 100 までの間にあるすべての 3 の倍数と 3 の付く整数を含む list 型の変数 san_list を作成しよう。</div>
 </div>
 </section>
-<section id="id17">
-<h3><span class="section-number">2.9.5. </span>演習5<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク"></a></h3>
+<section id="id18">
+<h3><span class="section-number">2.10.5. </span>演習5.<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク"></a></h3>
 <div class="mb0 line-block">
-<div class="line">ファイル名: practice5.py</div>
-<div class="line">下記のリスト型の変数 name_list は、name、company を含むディクショナリが格納されています。</div>
-<div class="line">この name_list に何件かデータを追加してみましょう。(実在の人物でなくても構いません)</div>
-<div class="line">company は jobcrown とそれ以外を織り交ぜてみましょう。</div>
+<div class="line">ファイル名: practice6.py</div>
+<div class="line">下記のリスト型の変数 mountains を elevation が小さい順に並べ替えるプログラムを作ってみよう。</div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name_list</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;taro tsuyama&quot;</span><span class="p">,</span> <span class="s2">&quot;company&quot;</span> <span class="p">:</span> <span class="s2">&quot;jobcrown&quot;</span><span class="p">},</span>
-    <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;hiyoko&quot;</span><span class="p">,</span> <span class="s2">&quot;company&quot;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mountains</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;悪沢岳&quot;</span><span class="p">,</span> <span class="s2">&quot;elevation&quot;</span><span class="p">:</span> <span class="mi">3141</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;奥穂高岳&quot;</span><span class="p">,</span> <span class="s2">&quot;elevation&quot;</span><span class="p">:</span> <span class="mi">3190</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;赤石岳&quot;</span><span class="p">,</span> <span class="s2">&quot;elevation&quot;</span><span class="p">:</span> <span class="mf">3120.53</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;富士山&quot;</span><span class="p">,</span> <span class="s2">&quot;elevation&quot;</span><span class="p">:</span> <span class="mi">3776</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;涸沢岳&quot;</span><span class="p">,</span> <span class="s2">&quot;elevation&quot;</span><span class="p">:</span> <span class="mi">3110</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;北穂高岳&quot;</span><span class="p">,</span> <span class="s2">&quot;elevation&quot;</span><span class="p">:</span> <span class="mi">3106</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;間ノ岳&quot;</span><span class="p">,</span> <span class="s2">&quot;elevation&quot;</span><span class="p">:</span> <span class="mi">3190</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;大喰岳&quot;</span><span class="p">,</span> <span class="s2">&quot;elevation&quot;</span><span class="p">:</span> <span class="mi">3101</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;槍ヶ岳&quot;</span><span class="p">,</span> <span class="s2">&quot;elevation&quot;</span><span class="p">:</span> <span class="mi">3180</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;北岳&quot;</span><span class="p">,</span> <span class="s2">&quot;elevation&quot;</span><span class="p">:</span> <span class="mf">3193.2</span><span class="p">},</span>
 <span class="p">]</span>
 </pre></div>
 </div>
-<p>データを追加した name_list のうち、company が jobcrown のデータのみ name を表示するプログラムを作ってみよう。</p>
+<div class="mb0 line-block">
+<div class="line">(ヒント)</div>
+<div class="line-block">
+<div class="line">list をソートする例 (バブルソート)</div>
+</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id19">
+<h3><span class="section-number">2.10.6. </span>演習6.<a class="headerlink" href="#id19" title="このヘッドラインへのパーマリンク"></a></h3>
+<div class="mb0 line-block">
+<div class="line">ファイル名: practice5.py</div>
+<div class="line">下記のリスト型の変数 name_list は、name、company を含むディクショナリが格納されています。</div>
+<div class="line">また、message_list は、company_name、message を含むディクショナリが格納されています。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name_list</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;Taro Tsuyama&quot;</span><span class="p">,</span> <span class="s2">&quot;company&quot;</span> <span class="p">:</span> <span class="s2">&quot;jobcrown&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;ひよこ&quot;</span><span class="p">,</span> <span class="s2">&quot;company&quot;</span> <span class="p">:</span> <span class="s2">&quot;株式会社 ひよこ&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;hiyoko&quot;</span><span class="p">,</span> <span class="s2">&quot;company&quot;</span> <span class="p">:</span> <span class="s2">&quot;ひよこカンパニー&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;Job Crown&quot;</span><span class="p">,</span> <span class="s2">&quot;company&quot;</span> <span class="p">:</span> <span class="s2">&quot;jobcrown&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;hiyoko&quot;</span><span class="p">,</span> <span class="s2">&quot;company&quot;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="s2">&quot;company&quot;</span> <span class="p">:</span> <span class="s2">&quot;Pythonソフトウェア財団&quot;</span><span class="p">},</span>
+<span class="p">]</span>
+
+<span class="n">message_list</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;company_name&quot;</span> <span class="p">:</span> <span class="s2">&quot;jobcrown&quot;</span> <span class="p">,</span> <span class="s2">&quot;message&quot;</span> <span class="p">:</span> <span class="s2">&quot;こんにちは&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;company_name&quot;</span> <span class="p">:</span> <span class="s2">&quot;株式会社 ひよこ&quot;</span> <span class="p">,</span> <span class="s2">&quot;message&quot;</span> <span class="p">:</span> <span class="s2">&quot;ぴよぴよ&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;company_name&quot;</span> <span class="p">:</span> <span class="kc">None</span> <span class="p">,</span> <span class="s2">&quot;message&quot;</span> <span class="p">:</span> <span class="s2">&quot;いらっしゃいませ&quot;</span><span class="p">},</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
+<div class="line">これらのデータをもとに下記の実行例を表示できるプログラムを作ってみよう。</div>
+<div class="line"><br /></div>
+<div class="line">(実行例)</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">こんにちは</span> <span class="n">Taro</span> <span class="n">Tsuyama</span> <span class="n">さん</span>
+<span class="n">ぴよぴよ</span> <span class="n">ひよこ</span> <span class="n">さん</span>
+<span class="n">いらっしゃいませ</span> <span class="n">hiyoko</span> <span class="n">さん</span>
+<span class="n">こんにちは</span> <span class="n">Job</span> <span class="n">Crown</span> <span class="n">さん</span>
+<span class="n">いらっしゃいませ</span> <span class="n">ななし</span> <span class="n">さん</span>
+<span class="n">いらっしゃいませ</span> <span class="n">Python</span> <span class="n">さん</span>
+</pre></div>
+</div>
 </section>
 </section>
-<section id="id18">
-<h2><span class="section-number">2.10. </span>おまけ<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク"></a></h2>
+<section id="id20">
+<h2><span class="section-number">2.11. </span>おまけ<a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク"></a></h2>
 <div class="mb0 line-block">
 <div class="line">Python には <strong>内包表記</strong> というイテラブルオブジェクトからリストやディクショナリ等を作れる便利な機能があります。</div>
 <div class="line">少し理解しづらい書き方ですが、Python3 エンジニア認定基礎試験にも出題される内容なので覚えておいてもいいと思います。</div>
@@ -680,8 +780,8 @@ discard は remove と同様のメソッドですが、対象のデータが存�
 <div class="line">こんなこともできます。 (特に意味はありません)</div>
 <div class="line">下記をファイルにコピペしてどんな動きになるか確認してみましょう。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id19">
-<div class="code-block-caption"><span class="caption-text">list_comprehensions.py</span><a class="headerlink" href="#id19" title="このコードへのパーマリンク"></a></div>
+<div class="literal-block-wrapper docutils container" id="id21">
+<div class="code-block-caption"><span class="caption-text">list_comprehensions.py</span><a class="headerlink" href="#id21" title="このコードへのパーマリンク"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 <span class="n">ord_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">26666</span><span class="p">,</span> <span class="mi">24335</span><span class="p">,</span> <span class="mi">20250</span><span class="p">,</span> <span class="mi">31038</span><span class="p">,</span> <span class="mi">12472</span><span class="p">,</span> <span class="mi">12519</span><span class="p">,</span> <span class="mi">12502</span><span class="p">,</span> <span class="mi">12463</span><span class="p">,</span> <span class="mi">12521</span><span class="p">,</span> <span class="mi">12454</span><span class="p">,</span> <span class="mi">12531</span><span class="p">]</span>
 <span class="n">chr_list</span> <span class="o">=</span> <span class="p">[</span><span class="nb">chr</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">ord_list</span><span class="p">]</span> <span class="c1"># リスト内法表記</span>
@@ -709,7 +809,7 @@ discard は remove と同様のメソッドですが、対象のデータが存�
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, Taro Tsuyama.
-      <span class="lastupdated">最終更新: 5月 13, 2022
+      <span class="lastupdated">最終更新: 5月 20, 2022
       </span></p>
   </div>
 
