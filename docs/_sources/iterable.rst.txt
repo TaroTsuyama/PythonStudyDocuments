@@ -796,7 +796,7 @@ for 文でよく使用される range 関数は range オブジェクトとい�
 .. line-block::
     :class: mb0
 
-    ファイル名: practice6.py
+    ファイル名: practice5.py
     下記のリスト型の変数 mountains を elevation が小さい順に並べ替えるプログラムを作ってみよう。
 
 .. code-block:: python
@@ -840,7 +840,7 @@ for 文でよく使用される range 関数は range オブジェクトとい�
 .. line-block::
     :class: mb0
 
-    ファイル名: practice5.py
+    ファイル名: practice6.py
     下記のリスト型の変数 name_list は、name、company を含むディクショナリが格納されています。
     また、message_list は、company_name、message を含むディクショナリが格納されています。
 
