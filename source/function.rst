@@ -34,7 +34,6 @@
 ###########################################################
 
 .. line-block::
-    :class: mb0
 
     組込み関数とは、あらかじめ用意されている関数のことです。
     Python の組込み関数は下記ページに記載されています。
@@ -153,7 +152,7 @@ zip 関数
 
 .. code-block:: python
 
-    def test_func(item_name, value, message):
+    def some_func1(item_name, value, message):
         return f"商品名 : {item_name}\n価格 : {value}\n説明 : {message}"
 
 .. line-block::
@@ -163,7 +162,7 @@ zip 関数
 
 .. code-block:: python
 
-    print(test_func("商品A", 100, "これは商品Aです"))
+    print(some_func1("商品A", 100, "これは商品Aです"))
 
 .. line-block::
     :class: mb0
@@ -173,7 +172,7 @@ zip 関数
 
 .. code-block:: python
 
-    print(test_func(value="200", message="これは商品Bです", item_name="商品B"))
+    print(some_func1(value="200", message="これは商品Bです", item_name="商品B"))
 
 .. line-block::
     :class: mb0
@@ -183,7 +182,41 @@ zip 関数
 
 .. code-block:: python
 
-    print(test_func("商品C", message="これは商品Cです", value="300"))
+    print(some_func1("商品C", message="これは商品Cです", value="300"))
+
+
+引数のデフォルト値
+***********************************************************
+
+.. line-block::
+    :class: mb0
+
+    関数の引数にはデフォルト値を設定することができます。
+    方法は関数定義時に以下のように指定します。
+
+.. code-block:: python
+
+    def 関数名(引数=デフォルト値):
+        処理
+        return 戻り値
+
+
+.. line-block::
+    :class: mb0
+
+    引数のデフォルト値を設定してある関数は、呼び出し時に引数を渡さなければデフォルト値を使用し、
+    引数を渡せばその値を使用します。
+
+    また、デフォルト値なしの引数と併用できますが、その場合は必ずデフォルト値なしの引数を先に定義する必要があります。
+
+.. code-block:: python
+
+    def some_func2(name, age=0):
+        print(f"私の名前は {name} です。\n{age} 才です。\n")
+
+    some_func2("ひよこ")
+    some_func2("Python", 10)
+    some_func2(name="Jobcrown", age=6)
 
 
 スコープ
@@ -206,7 +239,8 @@ zip 関数
 .. line-block::
     :class: mb0
 
-    上図の関数F内で変数Aを上書きしている部分は、上書きというよりも関数内で再定義しているという表現の方が近いかもしれません。
+    上図の関数 F 内で変数 A を上書きしている部分は、上書きというよりも関数内で再定義しているという表現の方が近いかもしれません。
+
     通常の変数の場合、関数内で上書きしても関数の外には影響ありませんが、
     リスト等の要素を変更した場合は関数の外でも反映されます。
 
@@ -259,7 +293,44 @@ zip 関数
     その関数の中でも再帰呼び出しが行われると、その処理も一旦中断して次の関数の処理...と進んでいきます。
     最終的に関数を終了する条件を満たすとひとつ前の関数に戻り値を返す処理を順次繰り返し、一番最初の関数まで戻っていき処理を終了します。
 
-    中断した関数の処理は **スタック** というメモリ領域に保存されていきますが、関数の終了条件を誤ると永遠に再帰呼び出しが行われ、スタックの容量がいっぱいになってしまうスタックオーバーフローという状態になり、エラーとして処理が途中で終了してしまいます。
+    中断した関数の処理は **スタック** というメモリ領域に保存されていきますが、関数の終了条件を誤ると永遠に再帰呼び出しが行われ、
+    スタックの容量がいっぱいになってしまうスタックオーバーフローという状態になり、エラーとして処理が途中で終了してしまいます。
+
+
+ジェネレータ
+###########################################################
+
+.. line-block::
+    :class: mb0
+
+    関数の戻り値に return ではなく **yield** を使用すると、 **ジェネレータ** という関数になります。
+
+    関数では return で戻り値を返した時点で関数の中の状態は全てクリアされますが、
+    ジェネレータは yield で戻り値を返した時点でジェネレータ内の状態を保ったままになります。
+    ジェネレータを再度呼び出すと、ジェネレータの処理は中断された場所から再開されます。
+
+    ジェネレータの戻り値はジェネレータを変数に代入した状態で **next 関数** で受け取る方法と、
+    for 文でカウンタ変数として受け取る方法があります。
+
+.. code-block:: python
+
+    def gen():
+        yield "python"
+        yield "jobcrown"
+        yield "hiyoko"
+        yield "abc"
+
+    # next 関数で受け取る例
+    g1 = gen()
+    print(next(g1))
+    print(next(g1))
+    print(next(g1))
+    print(next(g1))
+
+    # カウンタ変数として受け取る例
+    for g2 in gen():
+        print(g2)
+
 
 
 高階関数
@@ -295,15 +366,61 @@ zip 関数
     print(odd_list)
 
 
+.. line-block::
+    :class: mb0
+
+    ユーザ定義関数でも高階関数は作れます。
+
+.. code-block:: python
+
+    def func1(func): # 高階関数
+        print("start func1")
+        func() # 引数として受け取った関数を実行
+        print("end func1")
+
+    def func2():
+        print("start func2")
+        print("end func2")
+
+    func1(func2)
+
+.. line-block::
+    :class: mb0
+
+    引数の関数に引数を渡したい場合、次のように **関数を返す関数** にします。
+
+.. code-block:: python
+
+    def func3(func): # 高階関数
+        print("start func1")
+        def inner(arg):
+            print("start func1 inner")
+            func(arg)
+            print("end func1 inner")
+        print("end func1")
+        return inner # 関数内で定義した関数を返す
+
+    def func4(arg):
+        print("start func4")
+        print(arg)
+        print("end func4")
+
+
+    fn = func3(func4)
+    fn(f"{'*'*10} JOBCROWN {'*'*10}")
+
+
 ラムダ式
 ###########################################################
 
 .. line-block::
     :class: mb0
 
-    ラムダ式（lambda 式）とは無名関数と呼ばれる関数で、一行で記述ができます。
+    ラムダ式 (lambda 式) とは無名関数とも呼ばれる関数で、一行で記述ができます。
 
-lambda 引数: 戻り値
+.. code-block:: python
+
+    lambda 引数: 戻り値
 
 .. line-block::
     :class: mb0
@@ -327,18 +444,344 @@ lambda 引数: 戻り値
 
     print(odd_list) # [2, 4, 6]
 
-イテレータ
-###########################################################
-
-ジェネレータ
-###########################################################
 
 デコレータ
 ###########################################################
 
+.. line-block::
+    :class: mb0
+
+    関数を受け取って関数を返す高階関数をより簡潔に記述する方法として **デコレータ** というものがあります。
+
+.. code-block:: python
+
+    def decorator(func): # 高階関数
+        print("start decorator")
+        def inner(arg):
+            print("start decorator inner")
+            func(arg)
+            print("end decorator inner")
+        print("end decorator")
+        return inner # 関数内で定義した関数を返す
+
+    @decorator # デコレータ
+    def func(arg):
+        print("start func")
+        print(arg)
+        print("end func")
+
+
+    func(f"{'*'*10} JOBCROWN {'*'*10}")
+
 
 演習問題
 ###########################################################
+
+| 演習用ディレクトリに lesson3 というディレクトリを作成し、
+| 各問題ごとに演習用のファイルを作成して、プログラムを作成しましょう。
+
+演習1.
+***********************************************************
+
+.. line-block::
+    :class: mb0
+
+    ファイル名: practice1.py
+    次のような関数を作ってみよう。
+
+.. line-block::
+    :class: quotation
+
+    関数名: 
+        cut_off_text
+    引数: 
+        text: int
+        max_length: int (デフォルト値 20)
+    戻り値: 
+        text の文字数が max_length を超える場合、それ以降を省略し末尾に「…」を追加した文字列を返し
+        text の文字数が max_length 以下なら、そのままの文字列を返す
+
+.. line-block::
+    :class: mb0
+
+    実行例
+
+.. code-block:: python
+
+    text = """寿限無 寿限無 五劫のすりきれ
+    海砂利水魚の水行末 雲来末 風来末
+    食う寝るところに住むところ
+    やぶら小路のぶら小路
+    パイポパイポ パイポのシューリンガン
+    シューリンガンのクーリンダイ
+    クーリンダイのポンポコナーのポンポコピーの
+    長久命の長助"""
+
+    print(cut_off_text(text))
+
+    """
+    ↓ 実行結果
+
+    寿限無 寿限無 五劫のすりきれ
+    海砂利水…
+
+    """
+
+
+演習2.
+***********************************************************
+
+.. line-block::
+
+    ファイル名: practice2.py
+
+.. line-block::
+    :class: mb0
+
+    (1) 次のような関数を作ってみよう。
+
+.. line-block::
+    :class: quotation
+
+    関数名: 
+        clamp
+    引数: 
+        num: int
+        max_num: int (デフォルト値 255)
+        min_num: int (デフォルト値 0)
+    戻り値: 
+        num が max_num を超える場合は max_num を返し、
+        min_num を未満の場合は min_num を返し、
+        min_num と max_num の間の数値の場合は num を返す。
+        ただし、num が数値型でない場合は 0 を返す。
+
+.. line-block::
+
+    (ヒント)
+        組み込み関数の `max 関数 <https://docs.python.org/ja/3/library/functions.html#max>`_ と `min 関数 <https://docs.python.org/ja/3/library/functions.html#min>`_ を使用するとより簡潔に記述できます。
+
+------------
+
+.. line-block::
+    :class: mb0
+
+    (2) 次のような関数を作ってみよう。
+
+.. line-block::
+    :class: quotation
+
+    関数名: 
+        dec_to_hex
+    引数: 
+        dec: int
+        digits: int (デフォルト値 2)
+    戻り値: 
+        10 進数の数値 dec を digits の文字数分ゼロ埋めした 16 進数の文字列 (大文字) を返す。
+
+.. line-block::
+    :class: mb0
+
+    (ヒント)
+        int 型のデータを 16 進数の文字列に変換するには **hex 関数** を使用します。
+        hex 関数 の戻り値は先頭に「0x」が付きます。
+        (例) hex(123) → '0x7b'
+
+    実行例
+
+.. code-block:: python
+
+    print(dec_to_hex(123))
+    print(dec_to_hex(15))
+    print(dec_to_hex(500))
+
+    """
+    ↓ 実行結果
+
+    7B
+    0F
+    1F4
+
+    """
+
+------------
+
+.. line-block::
+    :class: mb0
+
+    (3) 次のような関数を作ってみよう。
+
+.. line-block::
+    :class: quotation
+
+    関数名: 
+        get_hex_code
+    引数: 
+        r: int
+        g: int
+        b: int
+        prefix: str (デフォルト値 "#")
+    戻り値: 
+        10 進数のカラーコードを 16 進数のカラーコードに変換して返す。
+
+.. line-block::
+    :class: mb0
+
+    (ヒント)
+        clamp 関数および dec_to_hex 関数を使用する。
+        組み込み関数の `map 関数 <https://docs.python.org/ja/3/library/functions.html#map>`_ を使用すると簡潔に記述できます。
+
+    実行例
+
+.. code-block:: python
+
+    print(get_hex_code(0,100,250))
+
+    """
+    ↓ 実行結果
+
+    #0064FA
+
+    """
+
+
+演習3.
+***********************************************************
+
+.. line-block::
+
+    ファイル名: practice3.py
+
+.. line-block::
+    :class: mb0
+
+    (1) 次のような関数を作ってみよう。
+
+.. line-block::
+    :class: quotation
+
+    関数名: 
+        split_string
+    引数: 
+        text: str
+        length: int (デフォルト値 1)
+    戻り値: 
+        text を length の文字数ごとに分割したリストを返す。
+
+.. line-block::
+    :class: mb0
+
+    実行例
+
+.. code-block:: python
+
+    print(split_string("Python"))
+    print(split_string("Python",2))
+    print(split_string("Python",3))
+    print(split_string("Python",4))
+
+    """
+    ↓ 実行結果
+
+    ['P', 'y', 't', 'h', 'o', 'n']
+    ['Py', 'th', 'on']
+    ['Pyt', 'hon']
+    ['Pyth', 'on']
+
+    """
+
+------------
+
+.. line-block::
+    :class: mb0
+
+    (2) 次のような関数を作ってみよう。
+
+.. line-block::
+    :class: quotation
+
+    関数名: 
+        hex_to_dec
+    引数: 
+        hex_str: str
+    戻り値: 
+        16 進数の文字列 hex_str を 10 進数の数値に変換して返す。
+        ただし、hex_str が 10 進数に変換できない場合は 0 を返す。
+
+.. line-block::
+    :class: mb0
+
+    (ヒント)
+        int 関数の第二引数に基数を指定すると、それに応じた文字列を数値に変換できます。
+        (例) int("FF", 16) → 255
+
+    実行例
+
+.. code-block:: python
+
+    print(hex_to_dec("0xab"))
+    print(hex_to_dec("12D"))
+    print(hex_to_dec("Python"))
+
+    """
+    ↓ 実行結果
+
+    171
+    301
+    0
+
+    """
+
+------------
+
+.. line-block::
+    :class: mb0
+
+    (3) 次のような関数を作ってみよう。
+
+.. line-block::
+    :class: quotation
+
+    関数名: 
+        get_rgb_code
+    引数: 
+        hex_code: str
+    戻り値: 
+        16 進数のカラーコードを 10 進数のカラーコードのタプルに変換して返す。
+        hex_code は先頭に「#」が付いている場合も付いていない場合も同様に変換が可能にする。
+        hex_code から「#」をのぞいた文字列の文字数は 3 文字または 6 文字の場合のみ変換を行い、それ以外の文字数の場合は (0,0,0) を返す。
+
+.. line-block::
+    :class: mb0
+
+    (ヒント)
+        split_string 関数および hex_to_dec 関数を使用する。
+
+
+    実行例
+
+.. code-block:: python
+
+    print(get_rgb_code("#fff"))
+    print(get_rgb_code("#fffaaa"))
+    print(get_rgb_code("12abcd"))
+    print(get_rgb_code("#fffaaab"))
+    print(get_rgb_code(123))
+    print(get_rgb_code(112233))
+    print(get_rgb_code("#112233"))
+
+    """
+    ↓ 実行結果
+
+    (255, 255, 255)
+    (255, 250, 170)
+    (18, 171, 205)
+    (0, 0, 0)
+    (17, 34, 51)
+    (17, 34, 51)
+    (17, 34, 51)
+
+    """
+
 
 
 おまけ
