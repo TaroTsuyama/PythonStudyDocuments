@@ -391,6 +391,7 @@ map 関数
 
     引数として関数を受け取ったり、戻り値として関数を返したりする関数を **高階関数** といいます。
     例えば組込み関数の **filter 関数** は引数で関数を受け取る高階関数です。
+    引数として高階関数に渡す関数を **コールバック関数** といったりもします。
 
 .. code-block:: python
 
@@ -423,41 +424,41 @@ map 関数
 
 .. code-block:: python
 
-    def func1(func): # 高階関数
-        print("start func1")
-        func() # 引数として受け取った関数を実行
-        print("end func1")
+    def my_filter(func, arr): # 高階関数
+        ret_list = []
+        for element in arr:
+            if func(element):
+                ret_list.append(element)
+        return ret_list
 
-    def func2():
-        print("start func2")
-        print("end func2")
+    odd_list = my_filter(is_odd, range(20))
 
-    func1(func2)
+    print(odd_list)
+
 
 .. line-block::
     :class: mb0
 
-    引数の関数に引数を渡したい場合、次のように **関数を返す関数** にします。
+    関数内で定義した関数を返すような形にすることで、次のように記述することもできます。
 
 .. code-block:: python
 
-    def func3(func): # 高階関数
-        print("start func1")
-        def inner(arg):
-            print("start func1 inner")
-            func(arg)
-            print("end func1 inner")
-        print("end func1")
+    def my_filter2(func): # 高階関数
+        ret_list = []
+        def inner(arr):
+            for element in arr:
+                if func(element):
+                    ret_list.append(element)
+            return ret_list
         return inner # 関数内で定義した関数を返す
 
-    def func4(arg):
-        print("start func4")
-        print(arg)
-        print("end func4")
+    def is_odd(num):
+        return num % 2 == 0
 
+    odd_filter = my_filter2(is_odd) # is_odd 関数に my_filter2 関数を適用した odd_filter 関数を定義
 
-    fn = func3(func4)
-    fn(f"{'*'*10} JOBCROWN {'*'*10}")
+    odd_list = odd_filter(range(20))
+    print(odd_list)
 
 
 ラムダ式
@@ -505,23 +506,21 @@ map 関数
 
 .. code-block:: python
 
-    def decorator(func): # 高階関数
-        print("start decorator")
-        def inner(arg):
-            print("start decorator inner")
-            func(arg)
-            print("end decorator inner")
-        print("end decorator")
+    def my_filter2(func): # 高階関数
+        ret_list = []
+        def inner(arr):
+            for element in arr:
+                if func(element):
+                    ret_list.append(element)
+            return ret_list
         return inner # 関数内で定義した関数を返す
 
-    @decorator # デコレータ
-    def func(arg):
-        print("start func")
-        print(arg)
-        print("end func")
+    @my_filter2 # デコレータ
+    def is_odd(num):
+        return num % 2 == 0
 
-
-    func(f"{'*'*10} JOBCROWN {'*'*10}")
+    odd_list = is_odd(range(20))
+    print(odd_list)
 
 
 演習問題

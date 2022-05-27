@@ -405,6 +405,7 @@
 <div class="mb0 line-block">
 <div class="line">引数として関数を受け取ったり、戻り値として関数を返したりする関数を <strong>高階関数</strong> といいます。</div>
 <div class="line">例えば組込み関数の <strong>filter 関数</strong> は引数で関数を受け取る高階関数です。</div>
+<div class="line">引数として高階関数に渡す関数を <strong>コールバック関数</strong> といったりもします。</div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">filter</span><span class="p">(</span><span class="n">関数</span><span class="p">,</span> <span class="n">イテラブルオブジェクト</span><span class="p">)</span>
 </pre></div>
@@ -428,38 +429,37 @@
 <div class="mb0 line-block">
 <div class="line">ユーザ定義関数でも高階関数は作れます。</div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func1</span><span class="p">(</span><span class="n">func</span><span class="p">):</span> <span class="c1"># 高階関数</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;start func1&quot;</span><span class="p">)</span>
-    <span class="n">func</span><span class="p">()</span> <span class="c1"># 引数として受け取った関数を実行</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;end func1&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_filter</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">arr</span><span class="p">):</span> <span class="c1"># 高階関数</span>
+    <span class="n">ret_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">func</span><span class="p">(</span><span class="n">element</span><span class="p">):</span>
+            <span class="n">ret_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ret_list</span>
 
-<span class="k">def</span> <span class="nf">func2</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;start func2&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;end func2&quot;</span><span class="p">)</span>
+<span class="n">odd_list</span> <span class="o">=</span> <span class="n">my_filter</span><span class="p">(</span><span class="n">is_odd</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
 
-<span class="n">func1</span><span class="p">(</span><span class="n">func2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">odd_list</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="mb0 line-block">
-<div class="line">引数の関数に引数を渡したい場合、次のように <strong>関数を返す関数</strong> にします。</div>
+<div class="line">関数内で定義した関数を返すような形にすることで、次のように記述することもできます。</div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func3</span><span class="p">(</span><span class="n">func</span><span class="p">):</span> <span class="c1"># 高階関数</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;start func1&quot;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;start func1 inner&quot;</span><span class="p">)</span>
-        <span class="n">func</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;end func1 inner&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;end func1&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_filter2</span><span class="p">(</span><span class="n">func</span><span class="p">):</span> <span class="c1"># 高階関数</span>
+    <span class="n">ret_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">func</span><span class="p">(</span><span class="n">element</span><span class="p">):</span>
+                <span class="n">ret_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret_list</span>
     <span class="k">return</span> <span class="n">inner</span> <span class="c1"># 関数内で定義した関数を返す</span>
 
-<span class="k">def</span> <span class="nf">func4</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;start func4&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;end func4&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">is_odd</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
 
+<span class="n">odd_filter</span> <span class="o">=</span> <span class="n">my_filter2</span><span class="p">(</span><span class="n">is_odd</span><span class="p">)</span> <span class="c1"># is_odd 関数に my_filter2 関数を適用した odd_filter 関数を定義</span>
 
-<span class="n">fn</span> <span class="o">=</span> <span class="n">func3</span><span class="p">(</span><span class="n">func4</span><span class="p">)</span>
-<span class="n">fn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;*&#39;</span><span class="o">*</span><span class="mi">10</span><span class="si">}</span><span class="s2"> JOBCROWN </span><span class="si">{</span><span class="s1">&#39;*&#39;</span><span class="o">*</span><span class="mi">10</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">odd_list</span> <span class="o">=</span> <span class="n">odd_filter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">odd_list</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -493,23 +493,21 @@
 <div class="mb0 line-block">
 <div class="line">関数を受け取って関数を返す高階関数をより簡潔に記述する方法として <strong>デコレータ</strong> というものがあります。</div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span> <span class="c1"># 高階関数</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;start decorator&quot;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;start decorator inner&quot;</span><span class="p">)</span>
-        <span class="n">func</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;end decorator inner&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;end decorator&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_filter2</span><span class="p">(</span><span class="n">func</span><span class="p">):</span> <span class="c1"># 高階関数</span>
+    <span class="n">ret_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">func</span><span class="p">(</span><span class="n">element</span><span class="p">):</span>
+                <span class="n">ret_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret_list</span>
     <span class="k">return</span> <span class="n">inner</span> <span class="c1"># 関数内で定義した関数を返す</span>
 
-<span class="nd">@decorator</span> <span class="c1"># デコレータ</span>
-<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;start func&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;end func&quot;</span><span class="p">)</span>
+<span class="nd">@my_filter2</span> <span class="c1"># デコレータ</span>
+<span class="k">def</span> <span class="nf">is_odd</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
 
-
-<span class="n">func</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;*&#39;</span><span class="o">*</span><span class="mi">10</span><span class="si">}</span><span class="s2"> JOBCROWN </span><span class="si">{</span><span class="s1">&#39;*&#39;</span><span class="o">*</span><span class="mi">10</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">odd_list</span> <span class="o">=</span> <span class="n">is_odd</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">odd_list</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
