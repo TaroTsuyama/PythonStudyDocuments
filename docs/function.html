@@ -322,7 +322,7 @@
 <section id="id8">
 <h2><span class="section-number">3.5. </span>再帰<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク"></a></h2>
 <div class="mb0 line-block">
-<div class="line">関数の中で、その関数自信を呼び出して繰り返し処理を行う再帰という手法があります。</div>
+<div class="line">関数の中で、その関数自身を呼び出して繰り返し処理を行う再帰という手法があります。</div>
 <div class="line">再帰を使うことで、より短いコードで処理を実行することができます。</div>
 <div class="line"><br /></div>
 <div class="line">例えば、下記に階乗を計算する関数を示します。</div>
@@ -418,12 +418,12 @@
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
 
-<span class="k">def</span> <span class="nf">is_odd</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span> <span class="c1"># 引数が偶数の時 True を返す関数</span>
+<span class="k">def</span> <span class="nf">is_even</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span> <span class="c1"># 引数が偶数の時 True を返す関数</span>
     <span class="k">return</span> <span class="n">arg</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
 
-<span class="n">odd_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="n">is_odd</span><span class="p">,</span> <span class="n">arr</span><span class="p">))</span> <span class="c1"># filter 関数は filter オブジェクトを返すので、list 関数でリストに変換している</span>
+<span class="n">even_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="n">is_even</span><span class="p">,</span> <span class="n">arr</span><span class="p">))</span> <span class="c1"># filter 関数は filter オブジェクトを返すので、list 関数でリストに変換している</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">odd_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">even_list</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="mb0 line-block">
@@ -436,9 +436,9 @@
             <span class="n">ret_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">ret_list</span>
 
-<span class="n">odd_list</span> <span class="o">=</span> <span class="n">my_filter</span><span class="p">(</span><span class="n">is_odd</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<span class="n">even_list</span> <span class="o">=</span> <span class="n">my_filter</span><span class="p">(</span><span class="n">is_even</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">odd_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">even_list</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="mb0 line-block">
@@ -453,13 +453,13 @@
         <span class="k">return</span> <span class="n">ret_list</span>
     <span class="k">return</span> <span class="n">inner</span> <span class="c1"># 関数内で定義した関数を返す</span>
 
-<span class="k">def</span> <span class="nf">is_odd</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">is_even</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
 
-<span class="n">odd_filter</span> <span class="o">=</span> <span class="n">my_filter2</span><span class="p">(</span><span class="n">is_odd</span><span class="p">)</span> <span class="c1"># is_odd 関数に my_filter2 関数を適用した odd_filter 関数を定義</span>
+<span class="n">even_filter</span> <span class="o">=</span> <span class="n">my_filter2</span><span class="p">(</span><span class="n">is_even</span><span class="p">)</span> <span class="c1"># is_even 関数に my_filter2 関数を適用した even_filter 関数を定義</span>
 
-<span class="n">odd_list</span> <span class="o">=</span> <span class="n">odd_filter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">odd_list</span><span class="p">)</span>
+<span class="n">even_list</span> <span class="o">=</span> <span class="n">even_filter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">even_list</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -472,7 +472,7 @@
 </pre></div>
 </div>
 <div class="mb0 line-block">
-<div class="line">例えば、前節で例として示した関数 is_odd をラムダ式で記述すると以下のようになります。</div>
+<div class="line">例えば、前節で例として示した関数 is_even をラムダ式で記述すると以下のようになります。</div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
 </pre></div>
@@ -482,9 +482,9 @@
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
 
-<span class="n">odd_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">arr</span><span class="p">))</span>
+<span class="n">even_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">arr</span><span class="p">))</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">odd_list</span><span class="p">)</span> <span class="c1"># [2, 4, 6]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">even_list</span><span class="p">)</span> <span class="c1"># [2, 4, 6]</span>
 </pre></div>
 </div>
 </section>
@@ -503,11 +503,11 @@
     <span class="k">return</span> <span class="n">inner</span> <span class="c1"># 関数内で定義した関数を返す</span>
 
 <span class="nd">@my_filter2</span> <span class="c1"># デコレータ</span>
-<span class="k">def</span> <span class="nf">is_odd</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">is_even</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
 
-<span class="n">odd_list</span> <span class="o">=</span> <span class="n">is_odd</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">odd_list</span><span class="p">)</span>
+<span class="n">even_list</span> <span class="o">=</span> <span class="n">is_even</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">even_list</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

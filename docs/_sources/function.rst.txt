@@ -287,7 +287,7 @@ map 関数
 .. line-block::
     :class: mb0
 
-    関数の中で、その関数自信を呼び出して繰り返し処理を行う再帰という手法があります。
+    関数の中で、その関数自身を呼び出して繰り返し処理を行う再帰という手法があります。
     再帰を使うことで、より短いコードで処理を実行することができます。
 
     例えば、下記に階乗を計算する関数を示します。
@@ -409,12 +409,12 @@ map 関数
 
     arr = [1,2,3,4,5,6]
 
-    def is_odd(arg): # 引数が偶数の時 True を返す関数
+    def is_even(arg): # 引数が偶数の時 True を返す関数
         return arg % 2 == 0
 
-    odd_list = list(filter(is_odd, arr)) # filter 関数は filter オブジェクトを返すので、list 関数でリストに変換している
+    even_list = list(filter(is_even, arr)) # filter 関数は filter オブジェクトを返すので、list 関数でリストに変換している
 
-    print(odd_list)
+    print(even_list)
 
 
 .. line-block::
@@ -431,9 +431,9 @@ map 関数
                 ret_list.append(element)
         return ret_list
 
-    odd_list = my_filter(is_odd, range(20))
+    even_list = my_filter(is_even, range(20))
 
-    print(odd_list)
+    print(even_list)
 
 
 .. line-block::
@@ -452,13 +452,13 @@ map 関数
             return ret_list
         return inner # 関数内で定義した関数を返す
 
-    def is_odd(num):
+    def is_even(num):
         return num % 2 == 0
 
-    odd_filter = my_filter2(is_odd) # is_odd 関数に my_filter2 関数を適用した odd_filter 関数を定義
+    even_filter = my_filter2(is_even) # is_even 関数に my_filter2 関数を適用した even_filter 関数を定義
 
-    odd_list = odd_filter(range(20))
-    print(odd_list)
+    even_list = even_filter(range(20))
+    print(even_list)
 
 
 ラムダ式
@@ -476,7 +476,7 @@ map 関数
 .. line-block::
     :class: mb0
 
-    例えば、前節で例として示した関数 is_odd をラムダ式で記述すると以下のようになります。
+    例えば、前節で例として示した関数 is_even をラムダ式で記述すると以下のようになります。
 
 .. code-block:: python
 
@@ -491,9 +491,9 @@ map 関数
 
     arr = [1,2,3,4,5,6]
 
-    odd_list = list(filter(lambda x: x%2 == 0, arr))
+    even_list = list(filter(lambda x: x%2 == 0, arr))
 
-    print(odd_list) # [2, 4, 6]
+    print(even_list) # [2, 4, 6]
 
 
 デコレータ
@@ -516,11 +516,11 @@ map 関数
         return inner # 関数内で定義した関数を返す
 
     @my_filter2 # デコレータ
-    def is_odd(num):
+    def is_even(num):
         return num % 2 == 0
 
-    odd_list = is_odd(range(20))
-    print(odd_list)
+    even_list = is_even(range(20))
+    print(even_list)
 
 
 演習問題
