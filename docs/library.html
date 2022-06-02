@@ -248,20 +248,21 @@
 <div class="line">今回の例だと (venv) と表示されているはずです。</div>
 <div class="line"><br /></div>
 <div class="line">仮想環境が有効な状態で pip (mac では pip3) を使用してライブラリをインストールすると、仮想環境に対してのみインストールされます。</div>
-<div class="line">たとえば、このドキュメントを作成するのにも使用している sphinx をインストールしてみましょう。</div>
+<div class="line"><br /></div>
+<div class="line">下記のコマンドを実行して numpy と pygame をインストールしてみましょう。</div>
+<div class="line">複数のライブラリをインストールする場合は下記のように続けて指定すれば OK です。</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span> <span class="n">pygame</span>
 </pre></div>
 </div>
 <div class="mb0 line-block">
-<div class="line">sphinx をインストールした状態でライブラリの一覧を表示してみましょう。</div>
+<div class="line">numpy と pygame をインストールした状態でライブラリの一覧を表示してみましょう。</div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">freeze</span>
 </pre></div>
 </div>
 <div class="mb0 line-block">
-<div class="line">sphinx 以外にも色々インストールされていることがわかるでしょうか。</div>
-<div class="line">これは、sphinx が自身以外のライブラリも必要としているため、pip が自動的にそれらをインストールしてくれているからです。</div>
+<div class="line">numpy と pygame がインストールされていることが表示されたでしょうか。</div>
 <div class="line"><br /></div>
 <div class="line">仮想環境を終了するには次のコマンドを実行します。(mac も共通です)</div>
 </div>
@@ -269,7 +270,7 @@
 </pre></div>
 </div>
 <div class="line-block">
-<div class="line">この状態でライブラリの一覧を表示すると sphinx がインストールされていないことがわかるでしょうか。</div>
+<div class="line">この状態でライブラリの一覧を表示すると numpy と pygame が (インストールしていなければ) インストールされていないことがわかるでしょうか。</div>
 </div>
 </section>
 </section>
@@ -287,7 +288,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, Taro Tsuyama.
-      <span class="lastupdated">最終更新: 5月 13, 2022
+      <span class="lastupdated">最終更新: 6月 02, 2022
       </span></p>
   </div>
 

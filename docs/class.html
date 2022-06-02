@@ -88,9 +88,9 @@
   <section id="id1">
 <h1><span class="section-number">5. </span>クラス<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク"></a></h1>
 <div class="mb0 line-block">
-<div class="line">この章ではジョブクラウンが巨大企業に立ち向かっていく系のシューティングゲーム「がんばれジョブクラウン」というゲームを作成(未完成)したので、ゲームのプログラムを通してクラス (ついでにライブラリも) について学んでいきます。</div>
+<div class="line">この章ではジョブクラウンが巨大企業に立ち向かっていく系のシューティングゲーム「がんばれジョブクラウン」というゲームを作成 (未完成) したので、ゲームのプログラムを通してクラスについて学んでいきます。</div>
 <div class="line"><br /></div>
-<div class="line">↓ゲーム実行イメージ</div>
+<div class="line">↓ ゲーム実行イメージ</div>
 </div>
 <img alt="_images/image024.png" src="_images/image024.png" />
 <section id="id2">
@@ -100,18 +100,17 @@
 <div class="line"><a class="reference external" href="https://github.com/TaroTsuyama/py_study/archive/master.zip">https://github.com/TaroTsuyama/py_study/archive/master.zip</a></div>
 <div class="line"><br /></div>
 <div class="line">ファイル一式を PC の適当な場所にダウンロードして Python で実行してみましょう。(Windows 以外で動くかはわかりません…)</div>
-<div class="line">Python をダウンロードしたままではゲームは動かないので、コマンドプロンプト(またはターミナル)で次のコマンドを実行してください。</div>
+<div class="line"><br /></div>
+<div class="line">このプログラムを実行するには、前章 <a class="reference internal" href="library.html"><span class="doc">ライブラリ・モジュール</span></a> で作成した仮想環境を利用します。(pygame、numpy がインストールされていれば OK)</div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pygame</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">venv</span><span class="p">)</span> <span class="n">python</span> <span class="n">sample_game</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
-<div class="mb0 line-block">
-<div class="line">なお、mac では特に設定していない場合 pip3 とする必要があります。</div>
-<div class="line"><br /></div>
+<div class="line-block">
 <div class="line">↑ ↓ ← → のキーでジョブクラウンを動かして、スペースキーで攻撃します。</div>
-<div class="line">敵の弾が 3 回当たったらゲームオーバーです。敵同士でつぶしあうこともあります。</div>
-<div class="line">ご覧の通り、スコア等の表示もなく効果音もありません。</div>
+<div class="line">敵の弾が 3 回当たったらゲームオーバーです。</div>
+<div class="line"><br /></div>
+<div class="line">Esc キーで一時停止します。</div>
 <div class="line"><br /></div>
 <div class="line">また、私はゲーム制作の経験がないので「ゲームのサンプルコード」としてはあまり参考にならないかもしれません。</div>
 </div>
@@ -119,7 +118,7 @@
 <section id="id3">
 <h2><span class="section-number">5.2. </span>クラスとは<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク"></a></h2>
 <div class="mb0 line-block">
-<div class="line">クラスとは、簡単に言えばオブジェクトの設計図です。</div>
+<div class="line">クラスとは、簡単に言えばオブジェクトの <strong>設計図</strong> です。</div>
 <div class="line">オブジェクトとは <a class="reference internal" href="iterable.html"><span class="doc">イテラブルオブジェクト</span></a> で簡単に説明してある通り物体を模したデータのことで、オブジェクト指向というプログラミングの方式においてとても重要な概念です。</div>
 <div class="line"><br /></div>
 <div class="line">クラスはあくまでも設計図なので、それ単体では機能しません。</div>
@@ -127,6 +126,7 @@
 <div class="line">クラスから作成したオブジェクトを <strong>インスタンス</strong> といいます。</div>
 <div class="line"><br /></div>
 <div class="line">たとえば、車を表すクラス Car を次のように定義します。</div>
+<div class="line">クラスの定義は <strong>class 構文</strong> を使用します。</div>
 <div class="line">.py ファイルを作成して実行しましょう。</div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
@@ -142,7 +142,7 @@
 </pre></div>
 </div>
 <div class="mb0 line-block">
-<div class="line">クラス内で変数を定義するとプロパティとなり、関数を定義するとメソッドになります。</div>
+<div class="line">クラス内で <strong>変数を定義すると「プロパティ」</strong> となり、 <strong>関数を定義すると「メソッド」</strong> になります。</div>
 <div class="line">メソッドの第一引数は自分自身を表す self というキーワードを指定します。</div>
 <div class="line"><br /></div>
 <div class="line">定義したクラスのインスタンスを生成するには以下のようにします。</div>
@@ -151,9 +151,15 @@
 </pre></div>
 </div>
 <div class="mb0 line-block">
-<div class="line">この変数car1はCar型のオブジェクトといえます。</div>
-<div class="line">内部には定義したプロパティやメソッドを持っています。</div>
+<div class="line">この変数 car1 は Car 型のオブジェクトといえます。</div>
+<div class="line">内部には定義したプロパティやメソッド (アトリビュート) を持っています。</div>
 <div class="line"><br /></div>
+<div class="line">オブジェクトのアトリビュートを参照するには dir 関数を使用します。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">car1</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="mb0 line-block">
 <div class="line">オブジェクトのプロパティやメソッドにアクセスするには . (ドット) 区切りで指定します。</div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">car1</span><span class="o">.</span><span class="n">color</span><span class="p">)</span> <span class="c1"># white</span>
@@ -165,6 +171,7 @@
 <div class="line">また、下記のようにプロパティを直接書き換えてしまうことも可能です。</div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">car1</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">car1</span><span class="o">.</span><span class="n">color</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="mb0 line-block">
@@ -187,27 +194,55 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_color</span>
 
     <span class="nd">@color</span><span class="o">.</span><span class="n">setter</span> <span class="c1"># プロパティを書き換えるときはこちらが呼び出される</span>
-    <span class="k">def</span> <span class="nf">color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">color_string</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color_string</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">color_string</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span> <span class="c1"># 引数の型が str の時のみ書き換えを行う</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_color</span> <span class="o">=</span> <span class="n">color_string</span>
 
 <span class="n">car2</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">car2</span><span class="o">.</span><span class="n">_color</span><span class="p">)</span> <span class="c1"># white</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">car2</span><span class="o">.</span><span class="n">color</span><span class="p">)</span> <span class="c1"># white</span>
 
 <span class="n">car2</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">car2</span><span class="o">.</span><span class="n">_color</span><span class="p">)</span> <span class="c1"># white</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">car2</span><span class="o">.</span><span class="n">color</span><span class="p">)</span> <span class="c1"># white</span>
 
 <span class="n">car2</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">car2</span><span class="o">.</span><span class="n">_color</span><span class="p">)</span> <span class="c1"># red</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">car2</span><span class="o">.</span><span class="n">color</span><span class="p">)</span> <span class="c1"># red</span>
 </pre></div>
 </div>
 <div class="mb0 line-block">
-<div class="line">上記の例だと Car クラスの車体カラーを表す変数は先頭にアンダースコアが付いた _color となっているのですが、インスタンスでアクセスしているアトリビュートにはアンダースコアがない color となっています。</div>
+<div class="line">上記の例だと Car クラスの車体カラーを表す変数は先頭に _ (アンダースコア) が付いた _color となっているのですが、インスタンスでアクセスしているアトリビュートにはアンダースコアがない color となっています。</div>
 <div class="line">これは Car クラスの車体カラーを表す変数を内部的には _color とすることでデータを <strong>隠ぺい</strong> しているのです。</div>
 <div class="line"><br /></div>
-<div class="line">color でアクセスしているのは property および setter なのです。</div>
+<div class="line">ここで color にアクセスすると property および setter が参照されます。</div>
 <div class="line">プロパティを参照しようとすると property の処理が呼ばれ、代入しようとすると setter の処理が呼ばれます。</div>
-<div class="line">setter で代入しようとする値の要件をチェックするような処理を行うと、想定していないデータは代入できない賢いプログラムができるのです。</div>
+<div class="line">setter で代入しようとする値の要件をチェックするような処理を行うと、想定していないデータは代入できない賢いプログラムができます。</div>
+<div class="line"><br /></div>
+<div class="line">これをオブジェクト指向の用語で <strong>カプセル化</strong> といったりします。</div>
+<div class="line">通常、プログラミング言語でカプセル化というとそのデータには直接アクセスできなくなります。</div>
+<div class="line"><br /></div>
+<div class="line">ところが <strong>Python ではアクセスできてしまいます</strong> 。</div>
+<div class="line"><br /></div>
+<div class="line">上記で定義した Car クラスのインスタンス car2 のアトリビュートを見てみましょう。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">car2</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">_color が表示されるはずです。</div>
+<div class="line">これを直接書き換えてしまうとどうなるでしょうか。</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">car2</span><span class="o">.</span><span class="n">_color</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">car2</span><span class="o">.</span><span class="n">color</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">書き換えできてしまいましたね。</div>
+<div class="line"><br /></div>
+<div class="line">これはどういうことかというと、Python では「_ (アンダースコア) が付いているアトリビュートは隠ぺいされているとみなして直接アクセスをしないようにしましょう」といった感じのローカルルールみたいなものがあるのです。</div>
+<div class="line">つまり、color と _color というアトリビュートがある場合アンダースコアのついていない color の方を使いましょう、ということです。</div>
+<div class="line"><br /></div>
+<div class="line">ちなみに、アトリビュートの先頭に <strong>アンダースコアを二つ付けるとより強力に隠ぺい</strong> されますが、この場合でも直接アクセスは可能です。</div>
+<div class="line"><br /></div>
+<div class="line">どちらにしても、先頭にアンダースコアの付いたアトリビュートは <strong>基本的には</strong> 直接参照しないようにしましょう。</div>
 </div>
 </section>
 <section id="id4">
@@ -263,12 +298,8 @@
 </div>
 <ul class="simple">
 <li><p>音がない</p></li>
-<li><p>スコア表示がない</p></li>
 <li><p>弾のパターンが 1 種類しかない → アイテム等を取得すると変化するようにしたい</p></li>
-<li><p>敵の動き方がきもちわるい</p></li>
-<li><p>ライフ残量がわからない→自機のライフ表示したい</p></li>
-<li><p>ライフが 3 で固定 → 敵機のライフは変化させたい</p></li>
-<li><p>コードを我流で書いている部分が多くあるのですっきりさせたい。</p></li>
+<li><p>ライフ残量がわからない → 自機のライフ表示したい</p></li>
 </ul>
 <div class="line-block">
 <div class="line">他にもいろいろあると思います。</div>
@@ -292,7 +323,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, Taro Tsuyama.
-      <span class="lastupdated">最終更新: 5月 13, 2022
+      <span class="lastupdated">最終更新: 6月 03, 2022
       </span></p>
   </div>
 
